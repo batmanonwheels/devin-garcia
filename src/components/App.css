@@ -1,0 +1,133 @@
+#root {
+	/* margin: 0 auto; */
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+/*GENERAL*/
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	color: rgb(67, 67, 67);
+}
+
+/*APP*/
+.App {
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	position: relative;
+}
+
+/*NAV BAR */
+
+nav {
+	display: grid;
+	grid-template-rows: repeat(4, 25%);
+	/* row-gap: 0.1rem; */
+	background-color: var(--beige);
+	width: 3.5rem;
+	height: 100%;
+	position: sticky;
+	top: 0;
+	left: 0;
+	overflow-y: hidden;
+}
+
+.nav-bar-section {
+	display: grid;
+	grid-template-columns: 0.05fr 0.2fr;
+}
+
+.nav-bar-tabs {
+	max-width: 3rem;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	/* background-color: var(--blue); */
+	/* display: flex; */
+	justify-items: center;
+}
+
+#nav-bar h1 {
+	position: relative;
+	top: 50%;
+	margin: 0;
+	font-size: x-large;
+	font-weight: 500;
+	transform: rotate(270deg);
+}
+
+.nav-bar-tabs h1:hover {
+	color: black;
+}
+
+.vl:before {
+	content: '';
+	display: inline-block;
+	z-index: inherit;
+	height: 100%;
+}
+
+#brown::before {
+	border-left: 0.5rem solid var(--brown);
+}
+
+#green::before {
+	border-left: 0.5rem solid var(--green);
+}
+
+#blue::before {
+	border-left: 0.5rem solid var(--blue);
+}
+
+#purple::before {
+	border-left: 0.5rem solid var(--purple);
+}
+
+/*TITLE*/
+#title {
+	/* position: sticky; */
+	top: 0;
+	right: 0;
+	z-index: 100;
+	position: fixed;
+	padding-right: 3rem;
+}
+
+/*GENERAL MAIN COMPONENTS*/
+
+.main-componenent {
+	top: 0;
+	left: 3.5rem;
+	height: 200%;
+	width: 100%;
+	overflow-y: visible;
+	position: absolute;
+}
+
+/*HOME*/
+
+#home {
+	background-color: var(--brown);
+}
+
+/*SOFTWARE*/
+
+#software {
+	background-color: var(--green);
+}
+
+/*MUSIC*/
+
+#music {
+	background-color: var(--blue);
+}
+
+/*ABOUT*/
+
+#about {
+	background-color: var(--purple);
+}
