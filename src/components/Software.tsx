@@ -16,8 +16,8 @@ export default function Software() {
 			{/* <div id='main-line' /> */}
 			<div className='main-component' id='software'>
 				{/* <Card name={project.name} link={project.link: String} image={project.image} description={project.description} githubLink={project.githubLink}/> */}
-				<Card project={project} />
-				<Card project={project} />
+				{/* <Card project={project} />
+				<Card project={project} /> */}
 				{/* <Card project={project} />
 				<Card project={project} />
 				<Card project={project} />

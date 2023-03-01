@@ -14,18 +14,21 @@ export default function Card({ project }: { project: Project }) {
 	};
 
 	return (
-		<div className='card'>
+		<div className='grid-col'>
 			<div className='card-image-container'>
-				<img src={project.image} className='card-image' />
+				<img className='card-image' src={project.image} />
 			</div>
 			<div className='card-detail-container'>
-				<a className='card-name' href={project.link}>
-					<h1 className='card-name'>{project.name}</h1>
+				<a href={project.link}>
+					<h1>{project.name}</h1>
 				</a>
 				<p className='card-description'>{project.description}</p>
-				<a className='card-link' href={project.githubLink}>
-					<AiFillGithub href={project.githubLink} size={50} color={'#434343'} />
-				</a>
+				<AiFillGithub
+					href={project.githubLink}
+					className='card-link'
+					size={50}
+					color={'#434343'}
+				/>
 			</div>
 		</div>
 	);
