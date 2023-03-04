@@ -22,7 +22,7 @@ export default function App() {
 
 	return (
 		<div className='App' onScroll={() => console.log(document.body.scrollTop)}>
-			<NavBar />
+			{/* <NavBar /> */}
 			<Title />
 			<div id='main'>
 				<BrowserRouter>
