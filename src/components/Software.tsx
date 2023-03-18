@@ -1,4 +1,5 @@
 import SoftwareCard from './SoftwareCard';
+import './styles/Software.css';
 
 export default function Software() {
 	interface Project {
@@ -22,76 +23,72 @@ export default function Software() {
 		<>
 			<div className='main-component' id='software'>
 				<div id='grid' className='software-grid'>
-					<div className='grid-row'>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-					</div>
-					<div className='grid-row'>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
 
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-					</div>
-					<div className='grid-row'>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-						<SoftwareCard
-							link={project.link}
-							name={project.name}
-							image={project.image}
-							description={project.description}
-							githubLink={project.githubLink}
-						/>
-					</div>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
+					<SoftwareCard
+						link={project.link}
+						name={project.name}
+						image={project.image}
+						description={project.description}
+						githubLink={project.githubLink}
+					/>
 				</div>
 			</div>
 		</>

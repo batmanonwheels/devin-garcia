@@ -1,7 +1,7 @@
 import ProgressBar from './ProgressBar';
 
 export default function NavBar() {
-	let pathName: String = window.location.href;
+	let pathName: string = window.location.href;
 	return (
 		<div id='nav'>
 			<div id='color-bar'>

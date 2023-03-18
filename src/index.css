@@ -1,5 +1,13 @@
+@font-face {
+	font-family: Futura;
+	src: url('https://github.com/gravadigital/futura-font/blob/master/FuturaBT-Medium.woff')
+		format('WOFF');
+	font-weight: normal;
+}
+
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	/* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+	font-family: Futura;
 	line-height: 1.5;
 	font-weight: 400;
 	color-scheme: light;
@@ -10,11 +18,23 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+	--platinum: #d8e2dc;
+	--white: #ffffff;
+	--reseda: #6c7d47;
+	--jet: #3c3744;
+	--mountbatten: #9d8189;
+
+	--silver: #e9e8e8;
 	--beige: #e1d7c6;
 	--brown: #b09276;
+	--cream: #f8ecd1;
+	--pink: #e9d5da;
+	--light-purple: #827397;
+	--navy: #4d4c7d;
+	--dark-purple: #363062;
 	--green: #76b086;
 	--blue: #768db0;
-	--purple: #b07695;
+	/* --purple: #b07695; */
 }
 
 /* a {

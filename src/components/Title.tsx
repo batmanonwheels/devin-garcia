@@ -1,13 +1,13 @@
+import './styles/Title.css';
+
 export default function Title() {
-	const name: string = 'DEVIN GARCIA';
+	// const name: string = 'DEVIN GARCIA';
+
+	let pathName: string = window.location.href.split('5173')[1];
+	console.log();
 	return (
 		<a href={'/'} id='title'>
-			<h1>DEVIN GARCIA</h1>
-			{/* <div id='title-letters'>
-				{name.split('').map((l, index) => (
-					<h1 key={index}>{l}</h1>
-				))}
-			</div> */}
+			<h1>devin garcia</h1>
 		</a>
 	);
 }
