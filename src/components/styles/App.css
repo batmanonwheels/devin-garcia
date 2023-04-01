@@ -11,7 +11,7 @@
 	padding-left: 0.75rem;
 }
 
-.container-carousel {
+.carousel-container {
 	height: 95%;
 	width: 98%;
 	margin: auto;
@@ -53,13 +53,26 @@
 	margin: 0.2rem;
 	margin-left: 1rem;
 	position: sticky;
-	top: 0%;
+	top: 1%;
 	font-size: 1rem;
 }
 
 .previous-containers > .container {
-	height: 33%;
+	height: 33.334%;
 }
+
+/* .previous-containers > .container:nth-child(1) {
+	border-top: 0em solid black;
+	border-bottom: 0.025em solid black;
+}
+.previous-containers > .container:nth-child(2) {
+	border-top: 0em solid black;
+	border-bottom: 0.025em solid black;
+}
+.previous-containers > .container:nth-child(3) {
+	border-top: 0em solid black;
+	border-bottom: 0.05em solid black;
+} */
 
 .next-containers > .container {
 	/* scroll-snap-align: end; */
