@@ -1,0 +1,86 @@
+#root {
+	height: 100svh;
+	width: 100svw;
+	background-color: var(--cream);
+	overflow: hidden;
+}
+
+#title {
+	font-size: 1rem;
+	margin: 0;
+	padding-left: 0.75rem;
+}
+
+.carousel-container {
+	height: 95%;
+	width: 98%;
+	margin: auto;
+	border-top: 0.3em solid orangered;
+	border-bottom: 0.25em solid orangered;
+	border-inline: 0.25em solid var(--cream);
+	overflow-y: scroll;
+	/* scroll-snap-type: y proximity;
+	scroll-snap-stop: always; */
+	/* border-radius: 1rem; */
+}
+
+.previous-containers {
+	max-height: 15.2%;
+	height: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.next-containers {
+	display: inline;
+	max-height: 85%;
+	overflow-y: hidden;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	max-height: 85%;
+	margin: auto;
+	border: 0.05em solid black;
+	background-color: var(--cream);
+	/* border-radius: 0.5rem; */
+	z-index: inherit;
+}
+
+.container-heading {
+	margin: 0.2rem;
+	margin-left: 1rem;
+	position: sticky;
+	top: 1%;
+	font-size: 1rem;
+}
+
+.previous-containers > .container {
+	height: 33.334%;
+}
+
+/* .previous-containers > .container:nth-child(1) {
+	border-top: 0em solid black;
+	border-bottom: 0.025em solid black;
+}
+.previous-containers > .container:nth-child(2) {
+	border-top: 0em solid black;
+	border-bottom: 0.025em solid black;
+}
+.previous-containers > .container:nth-child(3) {
+	border-top: 0em solid black;
+	border-bottom: 0.05em solid black;
+} */
+
+.next-containers > .container {
+	/* scroll-snap-align: end; */
+	position: sticky;
+	height: 100%;
+	width: 100%;
+	z-index: inherit;
+}
+
+.next-containers > .container > .container-heading {
+}
