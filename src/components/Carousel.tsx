@@ -3,12 +3,13 @@ import Portfolio from './Portfolio';
 export default function Carousel() {
 	const carouselContainer: Element | null =
 		document.querySelector(`#portfolio`);
-
-	document.querySelector(`#portfolio`)?.scrollTo({
-		top: 100000,
-		left: 0,
-		behavior: 'smooth',
-	});
+	if (carouselContainer) {
+		carouselContainer!.scrollTo({
+			top: 100000,
+			left: 0,
+			behavior: 'smooth',
+		});
+	}
 
 	return (
 		<>

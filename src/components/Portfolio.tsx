@@ -12,33 +12,6 @@ export default function Portfolio() {
 	// create an array to store the copied div elements
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
 
-	// const managePreviousContainer = (
-	// 	target: Partial<EventElements>,
-	// 	previousContainer: Partial<EventElements>,
-	// 	currentIndex: number
-	// ): void => {
-	// 	let tempArr: Project[] = [];
-
-	// 	if (currentIndex >= 2) {
-	// 		tempArr.push(
-	// 			projects[currentIndex - 2],
-	// 			projects[currentIndex - 1],
-	// 			projects[currentIndex]
-	// 		);
-	// 	} else if (currentIndex == 1) {
-	// 		tempArr.push(projects[currentIndex - 1], projects[currentIndex]);
-	// 	} else if (currentIndex == 0) {
-	// 		tempArr.push(projects[currentIndex]);
-	// 	}
-	// target.children[1].children[
-	// 	currentIndex + 1
-	// ].children[0].children[0].style.top =
-	// 	(previousContainer!.offsetHeight / 3) * previousContainer!.children.length +
-	// 	'px';
-	// 	// console.log(tempArr);
-	// 	setCopiedProjects(tempArr);
-	// };
-
 	const handleScroll = (e: React.UIEvent<HTMLDivElement>): void => {
 		const { target }: Partial<EventElements> = e;
 		const previousContainer: Partial<EventElements> = e.target.children[0];
@@ -73,26 +46,6 @@ export default function Portfolio() {
 				currentIndex + 1
 			].children[0].children[0].style.top =
 				(previousContainer!.offsetHeight / 3) * copiedProjects.length + 'px';
-			// console.log(scrollY, currentIndex, portfolioContainerHeight * 0.1);
-
-			// const pastProjects: Project[] = projects.filter(
-			// 	(project) =>
-			// 		project.id <=
-			// 			Math.trunc(
-			// 				(scrollY / (carouselHeight - portfolioContainerHeight * 2)) * 10
-			// 			) &&
-			// 		project.id >=
-			// 			Math.trunc(
-			// 				(scrollY / (carouselHeight - portfolioContainerHeight * 2)) * 10
-			// 			) -
-			// 				2
-			// );
-
-			console.log(
-				Math.floor(
-					(scrollY / (carouselHeight - portfolioContainerHeight * 2.5)) * 10
-				)
-			);
 
 			setCopiedProjects(
 				projects.filter(
@@ -110,14 +63,6 @@ export default function Portfolio() {
 								2
 				)
 			);
-
-			// //if the index is greater than or equal to 0
-			// if (currentIndex >= 0) {
-			// 	setCopiedProjects([]); //
-			// 	// managePreviousContainer(target, previousContainer, currentIndex);
-			// } else if (currentIndex <= 0 && target.childNodes[0].childNodes[0]) {
-			// 	setCopiedProjects([]);
-			// }
 		}
 	};
 
