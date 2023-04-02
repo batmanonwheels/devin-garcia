@@ -3,39 +3,59 @@ import { Project } from '../data/works';
 
 interface PortfolioContainerProps {
 	id: number;
-	project: Project;
+	name: string;
+	image: string;
+	dateCreated: string;
+	deployedLink?: string;
+	githubLink: string;
+	description: string;
+	previousContainer: boolean;
 }
 
 export default function PortfolioContainer({
 	id,
-	project,
+	name,
+	image,
+	dateCreated,
+	deployedLink,
+	githubLink,
+	description,
+	previousContainer,
 }: PortfolioContainerProps) {
 	return (
-		<div id={`item-${id}`} className='container'>
-			<h4 className='container-heading'>{project.id}</h4>
+		<div id={`${id}`} className='container'>
+			{previousContainer ? (
+				<a className='jump-to-entry' href={`#${id}`}>
+					<div className='container-heading'>
+						<h4>{name}</h4>
+						<h4>{dateCreated}</h4>
+					</div>
+				</a>
+			) : (
+				<>
+					<a className='site-link' href={githubLink}>
+						<div className='container-heading'>
+							<h4>{name}</h4>
+							<h4>{dateCreated}</h4>
+						</div>
+						<div className='container-content'>
+							{/* <img
+								className='container-image'
+								alt={`photo of ${name}`}
+								src={image}
+							/> */}
+
+							<div className='container-info'>
+								<p className='container-description'>{description}</p>
+								<div className='container-buttons'>
+									<button className='github-link'>GitHub Repo</button>
+									<button className='github-link'>Deployed Site</button>
+								</div>
+							</div>
+						</div>
+					</a>
+				</>
+			)}
 		</div>
 	);
 }
-
-// if (Math.round(portfolioContainerYPos) == 0) {
-// }
-
-// get the distance between the top of the document and the top of the div element
-// const divHeight: number = portfolioContainer?.scrollTop;
-
-// if (
-// 	carouselTop - divHeight / 9 >= divHeight &&
-// 	copiedDivs.length < 3 &&
-// 	!copiedDivs.includes(portfolioContainer)
-// ) {
-// 	// create a copy of the portfolio container div element
-// 	const copiedDiv: Node = portfolioContainer?.cloneNode(true);
-
-// 	copiedDivs.push(copiedDiv);
-// 	// add the copied div element to the previous container div
-// 	previousContainer.current?.appendChild(copiedDiv);
-// } else if (carouselTop <= divHeight && copiedDivs.length > 0) {
-// 	// remove the oldest copied div element from the previous container div
-// 	const oldestDiv: Node | undefined = copiedDivs?.shift();
-// 	previousContainer.current?.removeChild(oldestDiv);
-// }
