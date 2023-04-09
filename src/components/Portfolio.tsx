@@ -41,12 +41,6 @@ export default function Portfolio() {
 					(scrollY / (carouselHeight - portfolioContainerHeight * 2)) * 10
 				) - 1;
 
-			//change top attribute of each portfolio container based on how many elements are in the previous container
-			target.children[1].children[
-				currentIndex + 1
-			].children[0].children[0].style.top =
-				(previousContainer!.offsetHeight / 3) * copiedProjects.length + 'px';
-
 			setCopiedProjects(
 				projects.filter(
 					(project) =>
@@ -63,6 +57,15 @@ export default function Portfolio() {
 								2
 				)
 			);
+
+			//change top attribute of each portfolio container based on how many elements are in the previous container
+			if (currentIndex >= 2) {
+				target.children[1].children[currentIndex + 1].children[0].style.top =
+					'15%';
+			} else if (currentIndex < 2 && currentIndex <= 0) {
+				target.children[1].children[currentIndex + 1].children[0].style.top =
+					5 * previousContainer!.children.length + '%';
+			}
 		}
 	};
 
@@ -83,6 +86,7 @@ export default function Portfolio() {
 						image={project.image}
 						dateCreated={project.date_created}
 						deployedLink={project.deployed_link}
+						languagesUsed={project.languages_used}
 						githubLink={project.github_link}
 						description={project.description}
 						previousContainer={true}
@@ -98,6 +102,7 @@ export default function Portfolio() {
 						image={project.image}
 						dateCreated={project.date_created}
 						deployedLink={project.deployed_link}
+						languagesUsed={project.languages_used}
 						githubLink={project.github_link}
 						description={project.description}
 						previousContainer={false}

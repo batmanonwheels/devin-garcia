@@ -4,6 +4,7 @@ export interface Project {
 	image: string;
 	date_created: string;
 	deployed_link?: string;
+	languages_used: string[];
 	github_link: string;
 	description: string;
 }
@@ -14,9 +15,10 @@ const projects: Array<Project> = [
 		name: 'NoteAbility',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Nov 21, 2022',
+		date_created: 'NOV.21.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: ['typescript', 'react', 'ruby', 'rails', 'postgresql'],
 		description:
 			'Play a song on a virtual piano and have your friends guess the name of it!',
 	},
@@ -25,20 +27,37 @@ const projects: Array<Project> = [
 		name: 'Synesthesia',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'Aug 9, 2022',
+		date_created: 'AUG.9.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+		],
 		description:
-			"View your recent Spotify listening history and write reviews for your favorite songs. You're seeing sounds.",
+			"View your recent Spotify listening history and write reviews for your favorite songs. Almost like you're seeing sounds.",
 	},
 	{
 		id: 10,
 		name: 'GameSquad',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Jul 28, 2022',
+		date_created: 'JUL.28.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/game_squad_frontend',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+			'materialui',
+		],
 		description:
 			'Noteability is a game that allows you to play a song on a virtual piano and have your friends guess the name of it!',
 	},
@@ -47,9 +66,18 @@ const projects: Array<Project> = [
 		name: 'The Ship',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'Jul 11, 2022',
+		date_created: 'JUL.11.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/bro-san/the-SHIP-frontend',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+			'css3',
+		],
 		description:
 			'A safe haven where weebs and weebs alike can view their favorite waifus and husbandos and choose who they think belongs together!',
 	},
@@ -58,9 +86,10 @@ const projects: Array<Project> = [
 		name: 'Kitty Collective',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Jun 20, 2022',
+		date_created: 'JUN.20.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: ['javascript', 'react', 'html5', 'css3'],
 		description:
 			'Browse a vast array of cats, select their favorites, and even add to the collections!',
 	},
@@ -69,9 +98,10 @@ const projects: Array<Project> = [
 		name: 'National Park Pal',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'May 31, 2022',
+		date_created: 'MAY.31.2022',
 		deployed_link: 'https://hkassow.github.io/phase-1-parks-project/',
 		github_link: 'https://github.com/hkassow/phase-1-parks-project',
+		languages_used: ['javascript', 'html5', 'css3'],
 		description:
 			'Your personal guide to most of the US National Parks & Landmarks!',
 	},
@@ -80,9 +110,17 @@ const projects: Array<Project> = [
 		name: 'NoteAbility',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Nov 21, 2022',
+		date_created: 'NOV.21.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: [
+			'typescript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+		],
 		description:
 			'Play a song on a virtual piano and have your friends guess the name of it!',
 	},
@@ -91,20 +129,38 @@ const projects: Array<Project> = [
 		name: 'Synesthesia',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'Aug 9, 2022',
+		date_created: 'AUG.9.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+			'materialui',
+		],
 		description:
-			"View your recent Spotify listening history and write reviews for your favorite songs. You're seeing sounds.",
+			"View your recent Spotify listening history and write reviews for your favorite songs. Almost like you're seeing sounds.",
 	},
 	{
 		id: 4,
 		name: 'GameSquad',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Jul 28, 2022',
+		date_created: 'JUL.28.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/game_squad_frontend',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+			'materialui',
+		],
 		description:
 			'Noteability is a game that allows you to play a song on a virtual piano and have your friends guess the name of it!',
 	},
@@ -113,9 +169,18 @@ const projects: Array<Project> = [
 		name: 'The Ship',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'Jul 11, 2022',
+		date_created: 'JUL.11.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/bro-san/the-SHIP-frontend',
+		languages_used: [
+			'javascript',
+			'react',
+			'ruby',
+			'rails',
+			'postgresql',
+			'html5',
+			'css3',
+		],
 		description:
 			'A safe haven where weebs and weebs alike can view their favorite waifus and husbandos and choose who they think belongs together!',
 	},
@@ -124,9 +189,10 @@ const projects: Array<Project> = [
 		name: 'Kitty Collective',
 		image:
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
-		date_created: 'Jun 20, 2022',
+		date_created: 'JUN.20.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
+		languages_used: ['javascript', 'react', 'html5', 'css3'],
 		description:
 			'Browse a vast array of cats, select their favorites, and even add to the collections!',
 	},
@@ -135,9 +201,10 @@ const projects: Array<Project> = [
 		name: 'National Park Pal',
 		image:
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
-		date_created: 'May 31, 2022',
+		date_created: 'MAY.31.2022',
 		deployed_link: 'https://hkassow.github.io/phase-1-parks-project/',
 		github_link: 'https://github.com/hkassow/phase-1-parks-project',
+		languages_used: ['javascript', 'html5', 'css3'],
 		description:
 			'Your personal guide to most of the US National Parks & Landmarks!',
 	},
