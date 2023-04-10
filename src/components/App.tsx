@@ -31,11 +31,11 @@ export default function App() {
 
 	return (
 		<>
-			{/* <NavDrawer
+			<NavDrawer
 				handleNavDrawer={handleNavDrawer}
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
-	/> */}
+			/>
 			<>
 				<NavBar
 					handleNavDrawer={handleNavDrawer}

@@ -27,7 +27,7 @@ export default function PortfolioContainer({
 	previousContainer,
 }: PortfolioContainerProps) {
 	return (
-		<div id={`${id}`} className='container'>
+		<div id={`${previousContainer ? id + ' prev' : id}`} className='container'>
 			{previousContainer ? (
 				<a className='jump-to-entry' href={`#${id}`}>
 					<div className='container-heading'>
@@ -77,7 +77,6 @@ export default function PortfolioContainer({
 										>
 											<FaGithubSquare />
 										</IconContext.Provider>
-										Repo
 									</button>
 
 									<button className='github-link'>Check It Out</button>
