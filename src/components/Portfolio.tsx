@@ -8,7 +8,13 @@ interface EventElements extends HTMLDivElement {
 	nextContainer: Element;
 }
 
-export default function Portfolio() {
+interface PortfolioContainerProps {
+	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
+}
+
+export default function Portfolio({
+	setCarouselContainer,
+}: PortfolioContainerProps) {
 	// create an array to store the copied div elements
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
 
@@ -76,6 +82,7 @@ export default function Portfolio() {
 			}}
 			className='carousel-container'
 			id='portfolio'
+			ref={(node) => setCarouselContainer(node)}
 		>
 			<div className='previous-containers'>
 				{copiedProjects.map((project: Project, i: number) => (

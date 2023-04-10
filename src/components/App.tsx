@@ -7,8 +7,9 @@ import NavDrawer from './NavDrawer';
 export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
 	const [hasScrolled, setHasScrolled] = useState<boolean>(false);
-	const carouselContainer: Element | null =
-		document.querySelector(`#portfolio`);
+	const [carouselContainer, setCarouselContainer] = useState(null);
+	// const carouselContainer: Element | null =
+	// 	document.querySelector(`#portfolio`);
 
 	if (window.innerWidth > 850) {
 		console.log('bigger');
@@ -42,7 +43,7 @@ export default function App() {
 					openNavDrawer={openNavDrawer}
 					setOpenNavDrawer={setOpenNavDrawer}
 				/>
-				<Carousel />
+				<Carousel setCarouselContainer={setCarouselContainer} />
 			</>
 		</>
 	);
