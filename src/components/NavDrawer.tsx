@@ -19,28 +19,34 @@ export default function NavDrawer({
 			) : null}
 
 			<div className={`nav-drawer${openNavDrawer ? ' show' : ''}`}>
-				<IconContext.Provider
+				{/* <IconContext.Provider
 					value={{
 						size: '2rem',
 						className: `burger-button-close${openNavDrawer ? ' slide' : ''}`,
 					}}
 				>
 					<CgClose onClick={handleNavDrawer} />
-				</IconContext.Provider>
-				<ul className='nav-list'>
-					<li className='nav-item'>
+				</IconContext.Provider> */}
+				<ul className={`nav-list${openNavDrawer ? '' : ' hide'}`}>
+					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<a href='/'>
-							<h4 className='nav-item-text'>HOME</h4>
+							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
+								HOME
+							</h4>
 						</a>
 					</li>
-					<li className='nav-item'>
+					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<a href='/works'>
-							<h4 className='nav-item-text'>PORTFOLIO</h4>
+							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
+								PORTFOLIO
+							</h4>
 						</a>
 					</li>
-					<li className='nav-item'>
+					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<a href='/contact'>
-							<h4 className='nav-item-text'>CONTACT</h4>
+							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
+								CONTACT
+							</h4>
 						</a>
 					</li>
 				</ul>
