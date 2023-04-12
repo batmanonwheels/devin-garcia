@@ -1,8 +1,13 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+	createBrowserRouter,
+	RouteObject,
+	RouterProvider,
+} from 'react-router-dom';
 import Home from './Home';
 import Portfolio from './Portfolio';
 import ErrorPage from './ErrorPage';
 import Contact from './Contact';
+import About from './About';
 
 interface CarouselProps {
 	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
@@ -16,6 +21,10 @@ export default function Carousel({ setCarouselContainer }): CarouselProps {
 			errorElement: <ErrorPage />,
 		},
 		{
+			path: '/about',
+			element: <About />,
+		},
+		{
 			path: '/works',
 			element: <Portfolio setCarouselContainer={setCarouselContainer} />,
 		},
@@ -24,5 +33,6 @@ export default function Carousel({ setCarouselContainer }): CarouselProps {
 			element: <Contact />,
 		},
 	]);
+
 	return <RouterProvider router={router} />;
 }

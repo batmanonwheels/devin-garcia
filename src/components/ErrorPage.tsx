@@ -6,11 +6,12 @@ export default function ErrorPage() {
 
 	return (
 		<div id='error-page'>
-			<h1>Oops!</h1>
-			<p>Sorry, an unexpected error has occurred.</p>
+			<h2>Uh Oh!</h2>
+			<p>Sorry, wrong castle!</p>
 			<p>
-				<i>{error.statusText || error.message}</i>
+				<i>'{error.error.message.split('"')[1]}' doesn't exist, silly!</i>
 			</p>
+			<a href='/'>Turn Back</a>
 		</div>
 	);
 }

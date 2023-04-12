@@ -65,13 +65,13 @@ export default function Portfolio({
 			);
 
 			//change top attribute of each portfolio container based on how many elements are in the previous container
-			if (currentIndex >= 2) {
-				target.children[1].children[currentIndex + 1].children[0].style.top =
-					'15%';
-			} else if (currentIndex < 2 && currentIndex <= 0) {
-				target.children[1].children[currentIndex + 1].children[0].style.top =
-					5 * previousContainer!.children.length + '%';
-			}
+			// if (currentIndex >= 2) {
+			// 	target.children[1].children[currentIndex + 1].children[0].style.top =
+			// 		'15%';
+			// } else if (currentIndex < 2 && currentIndex <= 0) {
+			// target.children[1].children[currentIndex + 1].children[0].style.top =
+			// 	5 * previousContainer!.children.length + '%';
+			// }
 		}
 	};
 
