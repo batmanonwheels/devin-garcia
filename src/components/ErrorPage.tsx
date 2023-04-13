@@ -1,17 +1,15 @@
 import { useRouteError } from 'react-router-dom';
 
 export default function ErrorPage() {
-	const error = useRouteError();
-	console.error(error);
+	let error: unknown = useRouteError();
 
 	return (
 		<div id='error-page'>
-			<h2>Uh Oh!</h2>
-			<p>Sorry, wrong castle!</p>
-			<p>
+			<h2>Sorry, Wrong Castle!</h2>
+			<h3>
 				<i>'{error.error.message.split('"')[1]}' doesn't exist, silly!</i>
-			</p>
-			<a href='/'>Turn Back</a>
+			</h3>
+			<a href='/'>Turn Back!</a>
 		</div>
 	);
 }

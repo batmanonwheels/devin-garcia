@@ -8,10 +8,7 @@ export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
 	const [hasScrolled, setHasScrolled] = useState<boolean>(false);
 	const [carouselContainer, setCarouselContainer] = useState(null);
-
-	// if (window.innerWidth > 850) {
-	// 	console.log('bigger');
-	// }
+	// const [isWideEnough, setIsWideEnough] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (!!carouselContainer && hasScrolled === false) {
@@ -35,6 +32,7 @@ export default function App() {
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
+
 			<>
 				<NavBar
 					handleNavDrawer={handleNavDrawer}
