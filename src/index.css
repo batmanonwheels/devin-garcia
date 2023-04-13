@@ -6,7 +6,7 @@
 } */
 
 :root {
-	/* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	font-family: Futura;
 	line-height: 1.5;
 	font-weight: 400;
@@ -18,7 +18,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-	--platinum: #d8e2dc;
+	/* --platinum: #d8e2dc;
 	--white: #ffffff;
 	--reseda: #6c7d47;
 	--jet: #3c3744;
@@ -38,9 +38,26 @@
 	--light-green: #ddffbb;
 	--dark-light-green: #c7e9b0;
 	--light-sage: #b3c99c;
-	--dark-sage: #6c8b54;
+	--dark-sage: #6c8b54; */
 
-	/* --purple: #b07695; */
+	/*light mode */
+	--bg-color: #ffffff;
+	--primary-color: #ffffff;
+	--secondary-color: #eeeeee;
+	--accent-color: #d8e2dc;
+	--shadow-color: black;
+	--font-color: black;
+
+	/*dark mode */
+}
+
+[data-theme='dark'] {
+	--bg-color: black;
+	--primary-color: black;
+	--secondary-color: black;
+	--accent-color: black;
+	--shadow-color: black;
+	--font-color: black;
 }
 
 /* a {

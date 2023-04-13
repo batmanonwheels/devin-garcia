@@ -2,18 +2,19 @@
 	height: 100svh;
 	width: 100svw;
 	max-width: 100%;
-	background-color: var(--light-green);
+	background-color: var(--bg-color);
 	overflow-y: hidden;
 	overflow-x: hidden;
 	background-image: radial-gradient(
 			circle,
 			transparent 0.25rem,
-			var(--light-green) 0.25rem
+			var(--bg-color) 0.25rem
 		),
-		linear-gradient(var(--light-sage), 0.1rem, transparent 0.1rem),
-		linear-gradient(90deg, var(--light-sage) 0.1rem, transparent 0.1rem);
+		linear-gradient(var(--accent-color), 0.1rem, transparent 0.1rem),
+		linear-gradient(90deg, var(--accent-color) 0.1rem, transparent 0.1rem);
 	background-size: 1rem 1rem;
 	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+	transition: all 1s;
 }
 
 #error-page {
@@ -71,10 +72,11 @@
 	top: 5%;
 	right: -10%;
 	width: 0%;
-	background-color: var(--dark-sage);
+	background-color: var(--secondary-color);
 	border-radius: 0.5rem;
-	box-shadow: 0.1rem 0.1rem;
-	transition: height 0.75s, width 1s, opacity 0.5s, right 2s;
+	box-shadow: 0.1rem 0.1rem var(--shadow-color);
+	transition: height 0.75s, width 1s, opacity 0.5s, right 2s,
+		background-color 1s;
 }
 
 .nav-list {
@@ -102,16 +104,69 @@
 	text-overflow: ellipsis;
 }
 
-/* .nav-item-icon {
-	height: 100%;
-	width: 100%;
-} */
+.color-toggle {
+	background-color: transparent;
+	border: none;
+	display: flex;
+}
+
+.color-toggle > h5 {
+	margin: 0;
+	font-weight: 700;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 3rem;
+	height: 1.3rem;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--accent-color);
+	-webkit-transition: 0.4s;
+	transition: all 0.4s, background-color 1s;
+	border-radius: 1rem;
+}
+
+.slider:before {
+	position: absolute;
+	content: '';
+	height: 1rem;
+	width: 1rem;
+	left: 0.15rem;
+	bottom: 0.15rem;
+	background-color: var(--secondary-color);
+	-webkit-transition: 0.4s;
+	transition: all 0.4s, background-color 1s;
+	border-radius: 50%;
+}
+
+input:checked + .slider:before {
+	content: '';
+	-webkit-transform: translateX(1.7rem);
+	-ms-transform: translateX(1.7rem);
+	transform: translateX(1.7rem);
+}
 
 .show {
 	display: block;
 	right: 2.5%;
 	opacity: 1;
-	height: 31%;
+	height: 41%;
 	width: 10rem;
 }
 
@@ -131,13 +186,14 @@ a {
 	width: 98%;
 	max-width: min(98%, 1280px);
 	margin: auto;
-	/* border-top: 0.3em solid var(--dark-sage);
-	border-bottom: 0.25em solid var(--dark-sage); */
+	/* border-top: 0.3em solid var(--secondary-color);
+	border-bottom: 0.25em solid var(--secondary-color); */
 
-	border-top: 0.15em solid var(--dark-sage);
-	border-bottom: 0.15em solid var(--dark-sage);
+	border-top: 0.15em solid var(--secondary-color);
+	border-bottom: 0.15em solid var(--secondary-color);
 	border-inline: 0.25em solid transparent;
 	overflow-y: scroll;
+
 	/*  border-radius: 1rem; */
 }
 
@@ -161,23 +217,23 @@ a {
 	max-height: 85%;
 	margin: auto;
 	border: 0.05em solid black;
-	/* background-color: var(--light-green); */
+
 	z-index: inherit;
 	overflow: hidden;
-	/* background-blend-mode: ; */
-	background-color: var(--light-green);
+
+	background-color: var(--bg-color);
 	background-image: radial-gradient(
 			circle,
 			transparent 0.25rem,
-			var(--light-green) 0.25rem
+			var(--bg-color) 0.25rem
 		),
-		linear-gradient(var(--dark-light-green), 0.1rem, transparent 0.1rem),
-		linear-gradient(90deg, var(--dark-light-green) 0.1rem, transparent 0.1rem);
+		linear-gradient(var(--secondary-color), 0.1rem, transparent 0.1rem),
+		linear-gradient(90deg, var(--secondary-color) 0.1rem, transparent 0.1rem);
 	background-size: 1rem 1rem;
 	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
 }
 .previous-containers > .container {
-	background-color: var(--light-green);
+	background-color: var(--bg-color);
 }
 .previous-containers > .container > .container-content {
 	display: none;
@@ -216,7 +272,6 @@ a {
 	min-height: 50%;
 
 	width: 100%;
-	transition: all 1s;
 }
 
 .container-image {
@@ -224,8 +279,8 @@ a {
 	max-width: 85%;
 	object-fit: fill;
 	z-index: -1;
-	border: 0.1em solid var(--dark-sage);
-	box-shadow: 0 10px 6px -6px #777;
+	border: 0.1em solid var(--secondary-color);
+	box-shadow: 0 10px 6px -6px var(--shadow-color);
 	border-radius: 0.5rem;
 }
 
@@ -252,8 +307,8 @@ a {
 	margin-left: 5%;
 	margin-right: 5%;
 	/* z-index: 1; */
-	background: var(--dark-light-green);
-	box-shadow: 0.2rem 0.2rem var(--dark-sage);
+	background: var(--bg-color);
+	box-shadow: 0.2rem 0.2rem var(--shadow-color);
 	transition: all 1s ease;
 }
 
@@ -278,7 +333,7 @@ a {
 
 .container-icons > i {
 	font-size: 1.8rem;
-	color: var(--light-sage);
+	color: var(--font-color);
 }
 
 .container-buttons {
@@ -292,20 +347,13 @@ a {
 	border-radius: 0.3rem;
 	width: 8.5rem;
 	height: 2.5rem;
-	background-color: var(--dark-sage);
-	color: var(--light-sage);
-	border: 0.15rem solid var(--light-sage);
+	background-color: var(--secondary-color);
+	color: var(--font-color);
+	border: 0.15rem solid var(--accent-color);
 	font-size: 1rem;
 	text-rendering: optimizeLegibility;
-	box-shadow: 0.1rem 0.1rem var(--dark-sage);
+	box-shadow: 0.1rem 0.1rem var(--shadow-color);
 }
-
-/* .github-link:nth-child(odd) {
-	width: 25%;
-	display: flex;
-	font-size: 100%;
-	background-color: var(--dark-sage);
-} */
 
 .previous-containers > .container {
 	height: calc(100% / 3);
@@ -355,9 +403,9 @@ a {
 		top: 5%;
 		right: -10%;
 		width: 0%;
-		background-color: var(--dark-sage);
+		background-color: var(--secondary);
 		border-radius: 0.5rem;
-		box-shadow: 0.1rem 0.1rem;
+		box-shadow: 0.1rem 0.1rem var(--shadow-color);
 		transition: height 0.75s, width 1s, opacity 0.5s, right 2s;
 	}
 
@@ -386,7 +434,6 @@ a {
 		top: 10%;
 		min-height: 50%;
 		width: min(100%, 52rem);
-		transition: all 1s;
 	}
 
 	.container-content {
@@ -407,8 +454,8 @@ a {
 		max-width: 90%;
 		min-height: 50%;
 		max-height: 70%;
-		background: var(--dark-light-green);
-		box-shadow: 0.2rem 0.2rem var(--dark-sage);
+		background: var(--bg-color);
+		box-shadow: 0.2rem 0.2rem var(--shadow-color);
 		border-radius: 0.25rem;
 		transition: all 2s ease;
 	}
@@ -431,12 +478,12 @@ a {
 		font-size: max(2rem, 100%);
 		flex-basis: 21%;
 		padding: 0.2rem;
-		color: var(--dark-sage);
+		color: var(--font-color);
 	}
 
 	.container-icons > .icon-container > p {
 		font-size: 70%;
-		color: var(--dark-sage);
+		color: var(--font-color);
 	}
 
 	.container-buttons {

@@ -6,14 +6,18 @@ interface NavBarProps {
 	handleNavDrawer: () => void;
 	openNavDrawer: boolean;
 	setOpenNavDrawer: (bool: boolean) => void;
-	isWideEnough: boolean;
+	isDarkMode: boolean;
+	setIsDarkMode: (bool: boolean) => void;
+	handleTheme: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function NavBar({
 	handleNavDrawer,
 	openNavDrawer,
 	setOpenNavDrawer,
-	isWideEnough,
+	isDarkMode,
+	setIsDarkMode,
+	handleTheme,
 }: NavBarProps) {
 	return (
 		<div className='nav'>
