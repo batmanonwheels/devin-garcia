@@ -8,7 +8,13 @@ interface EventElements extends HTMLDivElement {
 	nextContainer: Element;
 }
 
-export default function Portfolio() {
+interface PortfolioContainerProps {
+	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
+}
+
+export default function Portfolio({
+	setCarouselContainer,
+}: PortfolioContainerProps) {
 	// create an array to store the copied div elements
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
 
@@ -59,13 +65,13 @@ export default function Portfolio() {
 			);
 
 			//change top attribute of each portfolio container based on how many elements are in the previous container
-			if (currentIndex >= 2) {
-				target.children[1].children[currentIndex + 1].children[0].style.top =
-					'15%';
-			} else if (currentIndex < 2 && currentIndex <= 0) {
-				target.children[1].children[currentIndex + 1].children[0].style.top =
-					5 * previousContainer!.children.length + '%';
-			}
+			// if (currentIndex >= 2) {
+			// 	target.children[1].children[currentIndex + 1].children[0].style.top =
+			// 		'15%';
+			// } else if (currentIndex < 2 && currentIndex <= 0) {
+			// target.children[1].children[currentIndex + 1].children[0].style.top =
+			// 	5 * previousContainer!.children.length + '%';
+			// }
 		}
 	};
 
@@ -76,6 +82,7 @@ export default function Portfolio() {
 			}}
 			className='carousel-container'
 			id='portfolio'
+			ref={(node) => setCarouselContainer(node)}
 		>
 			<div className='previous-containers'>
 				{copiedProjects.map((project: Project, i: number) => (

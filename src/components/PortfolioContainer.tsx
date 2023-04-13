@@ -69,14 +69,15 @@ export default function PortfolioContainer({
 								</div>
 								<div className='container-buttons'>
 									<button className='github-link'>
-										<IconContext.Provider
+										{/* <IconContext.Provider
 											value={{
 												size: '100%',
 												color: '#b3c99c',
 											}}
 										>
 											<FaGithubSquare />
-										</IconContext.Provider>
+										</IconContext.Provider> */}
+										Github
 									</button>
 
 									<button className='github-link'>Check It Out</button>

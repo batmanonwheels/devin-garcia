@@ -7,12 +7,8 @@ import NavDrawer from './NavDrawer';
 export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
 	const [hasScrolled, setHasScrolled] = useState<boolean>(false);
-	const carouselContainer: Element | null =
-		document.querySelector(`#portfolio`);
-
-	if (window.innerWidth > 850) {
-		console.log('bigger');
-	}
+	const [carouselContainer, setCarouselContainer] = useState(null);
+	// const [isWideEnough, setIsWideEnough] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (!!carouselContainer && hasScrolled === false) {
@@ -36,13 +32,14 @@ export default function App() {
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
+
 			<>
 				<NavBar
 					handleNavDrawer={handleNavDrawer}
 					openNavDrawer={openNavDrawer}
 					setOpenNavDrawer={setOpenNavDrawer}
 				/>
-				<Carousel />
+				<Carousel setCarouselContainer={setCarouselContainer} />
 			</>
 		</>
 	);

@@ -17,16 +17,7 @@ export default function NavDrawer({
 			{openNavDrawer ? (
 				<div className='nav-drawer-transparent' onClick={handleNavDrawer}></div>
 			) : null}
-
 			<div className={`nav-drawer${openNavDrawer ? ' show' : ''}`}>
-				{/* <IconContext.Provider
-					value={{
-						size: '2rem',
-						className: `burger-button-close${openNavDrawer ? ' slide' : ''}`,
-					}}
-				>
-					<CgClose onClick={handleNavDrawer} />
-				</IconContext.Provider> */}
 				<ul className={`nav-list${openNavDrawer ? '' : ' hide'}`}>
 					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<a href='/'>
