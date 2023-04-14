@@ -10,10 +10,12 @@ import Contact from './Contact';
 import About from './About';
 
 interface CarouselProps {
-	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
+	setCarouselContainer: React.Dispatch<
+		React.SetStateAction<HTMLDivElement | null>
+	>;
 }
 
-export default function Carousel({ setCarouselContainer }): CarouselProps {
+export default function Carousel({ setCarouselContainer }: CarouselProps) {
 	const router = createBrowserRouter([
 		{
 			path: '/',

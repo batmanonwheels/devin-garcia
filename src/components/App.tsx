@@ -7,8 +7,22 @@ import NavDrawer from './NavDrawer';
 export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
 	const [hasScrolled, setHasScrolled] = useState<boolean>(false);
-	const [carouselContainer, setCarouselContainer] = useState(null);
-	// const [isWideEnough, setIsWideEnough] = useState<boolean>(false);
+	const [carouselContainer, setCarouselContainer] =
+		useState<HTMLDivElement | null>(null);
+	const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+	const handleTheme = (e: boolean): void => {
+		if (isDarkMode === false) {
+			setIsDarkMode(true);
+			document.documentElement.setAttribute('data-theme', 'dark');
+		} else {
+			setIsDarkMode(false);
+			document.documentElement.setAttribute('data-theme', 'light');
+		}
+		console.log(document.documentElement);
+	};
+
+	// console.log(isDarkMode);
 
 	useEffect(() => {
 		if (!!carouselContainer && hasScrolled === false) {
@@ -28,6 +42,9 @@ export default function App() {
 	return (
 		<>
 			<NavDrawer
+				isDarkMode={isDarkMode}
+				setIsDarkMode={setIsDarkMode}
+				handleTheme={handleTheme}
 				handleNavDrawer={handleNavDrawer}
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
@@ -35,6 +52,9 @@ export default function App() {
 
 			<>
 				<NavBar
+					isDarkMode={isDarkMode}
+					setIsDarkMode={setIsDarkMode}
+					handleTheme={handleTheme}
 					handleNavDrawer={handleNavDrawer}
 					openNavDrawer={openNavDrawer}
 					setOpenNavDrawer={setOpenNavDrawer}

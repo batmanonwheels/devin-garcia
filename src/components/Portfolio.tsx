@@ -1,6 +1,7 @@
 import { useRef, RefObject, useState } from 'react';
 import PortfolioContainer from './PortfolioContainer';
 import { revProjects as projects, Project } from '../data/works';
+import './styles/Portfolio.css';
 
 interface EventElements extends HTMLDivElement {
 	target: EventTarget;

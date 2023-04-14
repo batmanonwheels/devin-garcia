@@ -1,57 +1,55 @@
-/* @font-face {
-	font-family: Futura;
-	src: url('https://github.com/gravadigital/futura-font/blob/master/FuturaBT-Medium.woff')
-		format('WOFF');
-	font-weight: normal;
-} */
-
 :root {
-	/* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
-	font-family: Futura;
+	font-family: 'Space Grotesk', sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-	/* color-scheme: light; */
-	/* color: rgba(255, 255, 255, 0.87); */
-	background-color: #242424;
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-	--platinum: #d8e2dc;
-	--white: #ffffff;
-	--reseda: #6c7d47;
-	--jet: #3c3744;
-	--mountbatten: #9d8189;
 
-	--silver: #e9e8e8;
-	--beige: #e1d7c6;
-	--brown: #b09276;
-	--cream: #f8ecd1;
-	--pink: #e9d5da;
-	--light-purple: #827397;
-	--navy: #4d4c7d;
-	--dark-purple: #363062;
-	--green: #76b086;
-	--blue: #768db0;
-
-	--light-green: #ddffbb;
-	--dark-light-green: #c7e9b0;
-	--light-sage: #b3c99c;
-	--dark-sage: #6c8b54;
-
-	/* --purple: #b07695; */
+	/* --bg-color: #f0e9d2;
+	--primary-color: #e6ddc4;
+	--secondary-color: #e6ddc4;
+	--accent-color: #678983;
+	--shadow-color: #181d31;
+	--font-color: #121626; */
+	--bg-color: #faf9f6;
+	--primary-color: #f0e9d2;
+	--secondary-color: #e6ddc4;
+	--accent-color: #678983;
+	--shadow-color: #181d31;
+	--font-color: #121626;
 }
 
-/* a {
-	font-weight: 500;
-	color: black;
-	text-decoration: inherit;
-} */
+/*dark mode */
+[data-theme='dark'] {
+	--bg-color: #181d31;
+	--primary-color: #181d31;
+	--secondary-color: #678983;
+	--accent-color: #678983;
+	--shadow-color: #e6ddc4;
+	--font-color: #faf9f6;
 
-/* a:hover {
-	color: gainsboro;
-} */
+	/* --bg-color: #181d31;
+	--primary-color: #181d31;
+	--secondary-color: #678983;
+	--accent-color: #678983;
+	--shadow-color: #e6ddc4;
+	--font-color: #f0e9d2; */
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: 'Space Grotesk', sans-serif;
+	color: var(--font-color);
+}
 
 html,
 body {
@@ -64,19 +62,13 @@ body {
 	width: 100%;
 }
 
-* {
-	box-sizing: border-box;
+*::-webkit-scrollbar {
+	display: none;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	/* a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	} */
+* {
+	box-sizing: border-box;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	transition: background-color 1s;
 }

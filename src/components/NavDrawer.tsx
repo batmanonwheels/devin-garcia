@@ -1,16 +1,22 @@
-import { IconContext } from 'react-icons';
-import { CgClose } from 'react-icons/cg';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import './styles/Nav.css';
 
 interface NavDrawerProps {
 	handleNavDrawer: () => void;
 	openNavDrawer: boolean;
 	setOpenNavDrawer: (bool: boolean) => void;
+	isDarkMode: boolean;
+	setIsDarkMode: (bool: boolean) => void;
+	handleTheme: (e: boolean) => void;
 }
 
 export default function NavDrawer({
 	setOpenNavDrawer,
 	handleNavDrawer,
 	openNavDrawer,
+	isDarkMode,
+	setIsDarkMode,
+	handleTheme,
 }: NavDrawerProps) {
 	return (
 		<>
@@ -39,6 +45,15 @@ export default function NavDrawer({
 								CONTACT
 							</h4>
 						</a>
+					</li>
+					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
+						<DarkModeSwitch
+							// style={{ color: 'var(--primary-color)' }}
+							className='theme-toggle'
+							checked={isDarkMode}
+							onChange={(e) => handleTheme(e)}
+							size={300}
+						/>
 					</li>
 				</ul>
 			</div>
