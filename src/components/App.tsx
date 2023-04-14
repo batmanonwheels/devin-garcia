@@ -11,8 +11,8 @@ export default function App() {
 		useState<HTMLDivElement | null>(null);
 	const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
-	const handleTheme = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		if (e.target.checked) {
+	const handleTheme = (e: boolean): void => {
+		if (isDarkMode === false) {
 			setIsDarkMode(true);
 			document.documentElement.setAttribute('data-theme', 'dark');
 		} else {

@@ -1,6 +1,7 @@
-import NavDrawer from './NavDrawer';
 import { IconContext } from 'react-icons';
 import { CgMenu } from 'react-icons/cg';
+import './styles/Nav.css';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 interface NavBarProps {
 	handleNavDrawer: () => void;
@@ -8,7 +9,7 @@ interface NavBarProps {
 	setOpenNavDrawer: (bool: boolean) => void;
 	isDarkMode: boolean;
 	setIsDarkMode: (bool: boolean) => void;
-	handleTheme: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleTheme: (e: boolean) => void;
 }
 
 export default function NavBar({
@@ -47,7 +48,16 @@ export default function NavBar({
 				>
 					contact
 				</a>
+
+				<DarkModeSwitch
+					// style={{ marginBottom: '2rem' }}
+					className='theme-toggle'
+					checked={isDarkMode}
+					onChange={(e) => handleTheme(e)}
+					size={35}
+				/>
 			</div>
+
 			<IconContext.Provider
 				value={{ size: '2rem', className: 'burger-button' }}
 			>

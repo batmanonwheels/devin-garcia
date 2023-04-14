@@ -45,11 +45,13 @@ export default function PortfolioContainer({
 						<div className='container-content'>
 							<div className='container-images'>
 								<img
+									loading='lazy'
 									className='container-image'
 									alt={`photo of ${name}`}
 									src={image}
 								/>
 								<img
+									loading='lazy'
 									className='container-image'
 									alt={`photo of ${name} 2`}
 									src={image}

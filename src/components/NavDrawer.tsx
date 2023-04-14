@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { IconContext } from 'react-icons';
-import { CgClose } from 'react-icons/cg';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import './styles/Nav.css';
 
 interface NavDrawerProps {
 	handleNavDrawer: () => void;
@@ -8,7 +7,7 @@ interface NavDrawerProps {
 	setOpenNavDrawer: (bool: boolean) => void;
 	isDarkMode: boolean;
 	setIsDarkMode: (bool: boolean) => void;
-	handleTheme: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleTheme: (e: boolean) => void;
 }
 
 export default function NavDrawer({
@@ -47,15 +46,14 @@ export default function NavDrawer({
 							</h4>
 						</a>
 					</li>
-					<li
-						className={`nav-item${openNavDrawer ? '' : ' hide'} color-toggle`}
-					>
-						<h5>L</h5>
-						<label className='switch'>
-							<input type='checkbox' onChange={(e) => handleTheme(e)} />
-							<span className='slider'></span>
-						</label>
-						<h5>D</h5>
+					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
+						<DarkModeSwitch
+							// style={{ color: 'var(--primary-color)' }}
+							className='theme-toggle'
+							checked={isDarkMode}
+							onChange={(e) => handleTheme(e)}
+							size={300}
+						/>
 					</li>
 				</ul>
 			</div>
