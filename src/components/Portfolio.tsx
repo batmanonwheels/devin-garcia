@@ -3,12 +3,6 @@ import PortfolioContainer from './PortfolioContainer';
 import { revProjects as projects, Project } from '../data/works';
 import './styles/Portfolio.css';
 
-interface EventElements extends HTMLDivElement {
-	target: EventTarget;
-	previousContainer: Element;
-	nextContainer: Element;
-}
-
 interface PortfolioContainerProps {
 	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
 }
@@ -19,14 +13,13 @@ export default function Portfolio({
 	// create an array to store the copied div elements
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
 
-	const handleScroll = (e: React.UIEvent<HTMLDivElement>): void => {
-		const { target }: Partial<EventElements> = e;
-		const previousContainer: Partial<EventElements> = e.target.children[0];
-		const nextContainer: Partial<EventElements> = e.target!.children[1];
+	const handleScroll = (target: HTMLElement): void => {
+		const previousContainer: HTMLElement = target.children[0] as HTMLElement;
+		const nextContainer: HTMLElement = target.children[1] as HTMLElement;
 
 		if (target && previousContainer && nextContainer) {
 			//get height of next container
-			const carouselHeight: number = nextContainer?.offsetHeight;
+			const carouselHeight: number | undefined = nextContainer?.offsetHeight;
 
 			//get height of a previous container child
 			const previousContainerDivHeight: number =
@@ -38,14 +31,17 @@ export default function Portfolio({
 				previousContainer.offsetHeight -
 				previousContainerDivHeight * copiedProjects.length;
 
+			//grab a single portfolio container
+			const singleContainer: HTMLElement = nextContainer
+				.children[0] as HTMLElement;
+
 			//height of single portfolio container
-			const portfolioContainerHeight: number =
-				nextContainer.children[0].offsetHeight;
+			const singleContainerHeight: number = singleContainer.offsetHeight;
 
 			//get index of portfolio container currently on screen
 			const currentIndex =
 				Math.trunc(
-					(scrollY / (carouselHeight - portfolioContainerHeight * 2)) * 10
+					(scrollY / (carouselHeight! - singleContainerHeight * 2)) * 10
 				) - 1;
 
 			setCopiedProjects(
@@ -53,25 +49,27 @@ export default function Portfolio({
 					(project) =>
 						project.id <=
 							Math.trunc(
-								(scrollY / (carouselHeight - portfolioContainerHeight * 2.5)) *
-									10
+								(scrollY / (carouselHeight! - singleContainerHeight * 2.5)) * 10
 							) &&
 						project.id >=
 							Math.trunc(
-								(scrollY / (carouselHeight - portfolioContainerHeight * 2.5)) *
-									10
+								(scrollY / (carouselHeight! - singleContainerHeight * 2.5)) * 10
 							) -
 								2
 				)
 			);
 
 			//change top attribute of each portfolio container based on how many elements are in the previous container
+			// let currentContainer: HTMLElement = target.children[1].children[
+			// 	currentIndex + 1
+			// ].children[0] as HTMLElement;
+			// console.log(currentContainer.style.top);
+
 			// if (currentIndex >= 2) {
-			// 	target.children[1].children[currentIndex + 1].children[0].style.top =
-			// 		'15%';
+			// 	currentContainer.style.top = '15%';
 			// } else if (currentIndex < 2 && currentIndex <= 0) {
-			// target.children[1].children[currentIndex + 1].children[0].style.top =
-			// 	5 * previousContainer!.children.length + '%';
+			// 	currentContainer.style.top =
+			// 		5 * previousContainer!.children.length + '%';
 			// }
 		}
 	};
@@ -79,7 +77,7 @@ export default function Portfolio({
 	return (
 		<div
 			onScroll={(e: React.UIEvent<HTMLDivElement>) => {
-				handleScroll(e);
+				handleScroll(e.target as HTMLElement);
 			}}
 			className='carousel-container'
 			id='portfolio'
