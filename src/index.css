@@ -1,5 +1,19 @@
+@font-face {
+	font-family: 'Kyiv Sans';
+	src: url('./fonts/KyivTypeSans.woff2') format('woff2-variations');
+	font-weight: 0 1000;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Kyiv Tilt';
+	src: url('./fonts/KyivTypeTitling.woff2') format('woff2-variations');
+	font-weight: 0 1000;
+	font-display: swap;
+}
+
 :root {
-	font-family: 'Space Grotesk', sans-serif;
+	font-family: 'Kyiv Sans, Kyiv Tilt';
 	line-height: 1.5;
 	font-weight: 400;
 	font-synthesis: none;
@@ -7,6 +21,9 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+	--border-radius: 0.5rem;
+	--border-light-thickness: 0.1em;
+	--border-heavy-thickness: 0.15em;
 
 	/* --bg-color: #f0e9d2;
 	--primary-color: #e6ddc4;
@@ -30,7 +47,6 @@
 	--accent-color: #678983;
 	--shadow-color: #e6ddc4;
 	--font-color: #faf9f6;
-
 	/* --bg-color: #181d31;
 	--primary-color: #181d31;
 	--secondary-color: #678983;
@@ -46,15 +62,41 @@ h3,
 h4,
 h5,
 h6,
-p {
-	font-family: 'Space Grotesk', sans-serif;
+p,
+button,
+li,
+span {
+	font-family: 'Kyiv Sans';
 	color: var(--font-color);
+	font-variation-settings: 'CONT' 500, 'MIDL' -900;
+}
+
+h1 {
+	font-family: 'Kyiv Tilt';
+	cursor: pointer;
+}
+
+a,
+h1 {
+	font-weight: 1000;
+	font-variation-settings: 'CONT' 1000, 'MIDL' -1000;
+	transition: font-weight 500ms, font-variation-settings 500ms;
+}
+
+a,
+h1:hover {
+	font-weight: 50;
+	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
 }
 
 html,
 body {
 	margin: 0;
 	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {
@@ -70,5 +112,5 @@ body {
 	box-sizing: border-box;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	transition: background-color 1s;
+	transition: background-color 500ms;
 }

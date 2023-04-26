@@ -22,8 +22,6 @@ export default function App() {
 		console.log(document.documentElement);
 	};
 
-	// console.log(isDarkMode);
-
 	useEffect(() => {
 		if (!!carouselContainer && hasScrolled === false) {
 			carouselContainer!.scrollTo({

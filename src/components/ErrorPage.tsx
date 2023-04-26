@@ -2,15 +2,26 @@ import './styles/Error.css';
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 import { stringSimilarity } from 'string-similarity-js';
 
+interface Error {
+	message: string;
+	stack: string;
+}
+
+interface ErrorResponse {
+	status: number;
+	statusText: string;
+	internal: boolean;
+	data: string;
+	error: Error;
+}
+
 export default function ErrorPage() {
-	const error: unknown = useRouteError();
+	const error: ErrorResponse = useRouteError() as ErrorResponse;
 	let errorMessage: string = '';
 
 	if (error !== undefined) {
 		errorMessage = error.error.message.split('"')[1];
 	}
-
-	// console.log(typeof useRouteError());
 
 	const routes: string[] = ['/', '/about', '/works', '/contact'];
 
@@ -31,7 +42,7 @@ export default function ErrorPage() {
 				<h4>
 					Did you mean
 					<a href={mostSimilarRoute}>
-						<i>'{mostSimilarRoute}'</i>
+						<i> '{mostSimilarRoute}'</i>
 					</a>
 					?
 				</h4>

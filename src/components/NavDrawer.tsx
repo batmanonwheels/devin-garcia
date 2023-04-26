@@ -48,11 +48,10 @@ export default function NavDrawer({
 					</li>
 					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<DarkModeSwitch
-							// style={{ color: 'var(--primary-color)' }}
 							className='theme-toggle'
 							checked={isDarkMode}
 							onChange={(e) => handleTheme(e)}
-							size={300}
+							size={30}
 						/>
 					</li>
 				</ul>
