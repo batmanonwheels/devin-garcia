@@ -22,39 +22,25 @@ export default function NavBar({
 }: NavBarProps) {
 	return (
 		<div className='nav'>
-			<p className='title'>devin garcia</p>
-
+			<h1 className='title'>devin garcia</h1>
 			<div className='navbar'>
-				<a className={`nav-item-text${openNavDrawer ? '' : ' hide'}`} href='/'>
+				<a className={`nav-item-text`} href='/'>
 					home
 				</a>
-				<a
-					className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}
-					href='/about'
-				>
+				<a className={`nav-item-text`} href='/about'>
 					about
 				</a>
-
-				<a
-					className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}
-					href='/works'
-				>
+				<a className={`nav-item-text`} href='/works'>
 					portfolio
 				</a>
-
-				<a
-					className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}
-					href='/contact'
-				>
+				<a className={`nav-item-text`} href='/contact'>
 					contact
 				</a>
-
 				<DarkModeSwitch
-					// style={{ marginBottom: '2rem' }}
 					className='theme-toggle'
 					checked={isDarkMode}
 					onChange={(e) => handleTheme(e)}
-					size={35}
+					size={30}
 				/>
 			</div>
 

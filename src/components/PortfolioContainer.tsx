@@ -2,6 +2,7 @@ import { useEffect, RefObject } from 'react';
 import { Project } from '../data/works';
 import { FaGithubSquare } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import { HashLink } from 'react-router-hash-link';
 
 interface PortfolioContainerProps {
 	id: number;
@@ -29,12 +30,12 @@ export default function PortfolioContainer({
 	return (
 		<div id={`${previousContainer ? id + ' prev' : id}`} className='container'>
 			{previousContainer ? (
-				<a className='jump-to-entry' href={`#${id}`}>
+				<HashLink className='jump-to-entry' smooth to={`#${id}`}>
 					<div className='container-heading'>
 						<h4>{name}</h4>
 						<h4>{dateCreated}</h4>
 					</div>
-				</a>
+				</HashLink>
 			) : (
 				<>
 					<div className='container-heading'>
@@ -43,15 +44,16 @@ export default function PortfolioContainer({
 					</div>
 					<a className='site-link' href={githubLink}>
 						<div className='container-content'>
+							{/* <h1 className='container-title'>{name.toLowerCase()}</h1> */}
 							<div className='container-images'>
 								<img
-									loading='lazy'
+									// loading='lazy'
 									className='container-image'
 									alt={`photo of ${name}`}
 									src={image}
 								/>
 								<img
-									loading='lazy'
+									// loading='lazy'
 									className='container-image'
 									alt={`photo of ${name} 2`}
 									src={image}
