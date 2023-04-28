@@ -15,6 +15,7 @@
 	max-height: 15.2%;
 	height: 100%;
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	z-index: 10;
 }
@@ -53,12 +54,9 @@
 	border-bottom: none;
 }
 
-.next-containers > .container:hover {
-}
-
 .container-heading {
-	position: -webkit-sticky;
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	display: flex;
 	justify-content: space-between;
@@ -163,8 +161,8 @@
 	margin-right: 5%;
 	/* z-index: 1; */
 	background: var(--bg-color);
-	box-shadow: 0.2rem 0.2rem var(--shadow-color);
-	transition: all 1s ease;
+	box-shadow: 0.05rem 0.05rem var(--shadow-color);
+	/* transition: all 1s ease; */
 	/* transition: all 1s; */
 }
 
@@ -239,6 +237,7 @@
 
 .next-containers > .container {
 	position: sticky;
+	position: -webkit-sticky;
 	height: 100%;
 	width: 100%;
 	z-index: inherit;
@@ -275,15 +274,15 @@
 		flex-wrap: wrap;
 		margin-right: 1rem;
 		z-index: 5;
-		transition: all 2s ease;
+		/* transition: all 2s ease; */
 		min-width: 80%;
 		max-width: 90%;
 		min-height: 50%;
 		max-height: 70%;
 		background: var(--bg-color);
-		box-shadow: 0.2rem 0.2rem var(--shadow-color);
+		box-shadow: 0.1rem 0.1rem var(--shadow-color);
 		border-radius: var(--border-light-thickness);
-		transition: all 2s ease;
+		/* transition: all 2s ease; */
 	}
 
 	.container-info > div {
