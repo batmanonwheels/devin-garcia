@@ -1,6 +1,6 @@
 .nav {
 	max-width: min(97.5%, 1280px);
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-right: 0;
 	max-height: 2rem;
 }
@@ -25,6 +25,7 @@
 	font-weight: 50;
 	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
 }
+
 .nav-item-text,
 .title {
 	font-weight: 1000;
@@ -38,12 +39,20 @@
 	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
 }
 
+.title-link {
+	width: 12rem;
+
+	height: 2rem;
+}
+
 .title {
 	color: var(--accent-color);
 	font-size: 1.35rem;
 	margin: 0;
 	padding-left: 0.75rem;
 	max-width: min(90%, 1280px);
+	max-height: 4rem;
+	/* width: fit-content; */
 }
 
 .nav-drawer-transparent {
@@ -142,11 +151,13 @@ a {
 		position: relative;
 		width: 98%;
 		display: flex;
+		justify-content: space-around;
 	}
 
 	.title {
 		font-size: 1.35rem;
 		margin: 0;
+		padding: 0;
 		max-width: min(90%, 1280px);
 	}
 
@@ -157,6 +168,7 @@ a {
 	}
 
 	.navbar {
+		width: 98%;
 		display: flex;
 	}
 
