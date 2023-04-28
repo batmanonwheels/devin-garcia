@@ -1,6 +1,6 @@
 import './styles/App.css';
 import Carousel from './Carousel';
-import NavBar from './NavBar';
+import Nav from './Nav';
 import { useState, useEffect } from 'react';
 import NavDrawer from './NavDrawer';
 
@@ -47,9 +47,8 @@ export default function App() {
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
-
 			<>
-				<NavBar
+				<Nav
 					isDarkMode={isDarkMode}
 					setIsDarkMode={setIsDarkMode}
 					handleTheme={handleTheme}
