@@ -60,7 +60,7 @@ export default function App() {
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
 			<>
-				<Texture />
+				{/* <Texture /> */}
 				<Nav
 					isDarkMode={isDarkMode}
 					setIsDarkMode={setIsDarkMode}
