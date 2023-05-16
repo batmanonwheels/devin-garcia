@@ -14,25 +14,31 @@ export default function Portfolio({
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
 
 	const handleScroll = (target: HTMLElement): void => {
-		const previousContainer: HTMLElement = target.children[0] as HTMLElement;
-		const nextContainer: HTMLElement = target.children[1] as HTMLElement;
+		const stickyContainer: HTMLElement = target.children[0] as HTMLElement;
+		const mainContainer: HTMLElement = target.children[1] as HTMLElement;
 
-		if (target && previousContainer && nextContainer) {
-			//get height of next container
-			const carouselHeight: number | undefined = nextContainer?.offsetHeight;
+		if (stickyContainer && mainContainer) {
+			//get height of main container
+			const carouselHeight: number | undefined = mainContainer.offsetHeight;
 
-			//get height of a previous container child
-			const previousContainerDivHeight: number =
-				previousContainer?.offsetHeight / 3;
+			//get height of a sticky container child
+			const stickyContainerDivHeight: number = stickyContainer.offsetHeight / 3;
 
-			//get current y position minus height of previous container
+			//get the number of elements in the sticky container
+			const stickyContainerDivCount: number = stickyContainer.children.length;
+
+			//get current height of sticky container
+			const currentStickyContainerHeight: number =
+				stickyContainerDivHeight * stickyContainerDivCount;
+
+			//get current y position minus height of sticky container
 			let scrollY: number =
 				target.scrollTop -
-				previousContainer.offsetHeight -
-				previousContainerDivHeight * copiedProjects.length;
+				stickyContainer.offsetHeight -
+				stickyContainerDivHeight * copiedProjects.length;
 
 			//grab a single portfolio container
-			const singleContainer: HTMLElement = nextContainer
+			const singleContainer: HTMLElement = mainContainer
 				.children[0] as HTMLElement;
 
 			//height of single portfolio container
@@ -41,36 +47,26 @@ export default function Portfolio({
 			//get index of portfolio container currently on screen
 			const currentIndex =
 				Math.trunc(
-					(scrollY / (carouselHeight! - singleContainerHeight * 2)) * 10
-				) - 1;
+					(scrollY + currentStickyContainerHeight) / singleContainerHeight
+				) + 1;
 
-			setCopiedProjects(
-				projects.filter(
-					(project) =>
-						project.id <=
-							Math.trunc(
-								(scrollY / (carouselHeight! - singleContainerHeight * 2.5)) * 10
-							) &&
-						project.id >=
-							Math.trunc(
-								(scrollY / (carouselHeight! - singleContainerHeight * 2.5)) * 10
-							) -
-								2
-				)
-			);
+			if (scrollY >= stickyContainerDivHeight) {
+				setCopiedProjects(
+					projects.filter(
+						(project) =>
+							project.id <= currentIndex - 1 && project.id >= currentIndex - 3
+					)
+				);
+			} else {
+				setCopiedProjects([]);
+			}
 
-			//change top attribute of each portfolio container based on how many elements are in the previous container
-			// let currentContainer: HTMLElement = target.children[1].children[
-			// 	currentIndex + 1
-			// ].children[0] as HTMLElement;
-			// console.log(currentContainer.style.top);
+			// change top attribute of each portfolio container based on how many elements are in the sticky container
+			let currentContainerHeading: HTMLElement = target.children[1].children[
+				currentIndex - 1
+			].children[0] as HTMLElement;
 
-			// if (currentIndex >= 2) {
-			// 	currentContainer.style.top = '15%';
-			// } else if (currentIndex < 2 && currentIndex <= 0) {
-			// 	currentContainer.style.top =
-			// 		5 * previousContainer!.children.length + '%';
-			// }
+			currentContainerHeading.style.top = currentStickyContainerHeight + 'px';
 		}
 	};
 

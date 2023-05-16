@@ -1,7 +1,3 @@
-import { useEffect, RefObject } from 'react';
-import { Project } from '../data/works';
-import { FaGithubSquare } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
 import { HashLink } from 'react-router-hash-link';
 
 interface PortfolioContainerProps {
@@ -28,7 +24,10 @@ export default function PortfolioContainer({
 	previousContainer,
 }: PortfolioContainerProps) {
 	return (
-		<div id={`${previousContainer ? id + ' prev' : id}`} className='container'>
+		<div
+			id={`${previousContainer ? id + ' prev' : id}`}
+			className='container-item'
+		>
 			{previousContainer ? (
 				<HashLink className='jump-to-entry' smooth to={`#${id}`}>
 					<div className='container-heading'>
@@ -42,53 +41,42 @@ export default function PortfolioContainer({
 						<h4>{name}</h4>
 						<h4>{dateCreated}</h4>
 					</div>
-					<a className='site-link' href={githubLink}>
-						<div className='container-content'>
-							{/* <h1 className='container-title'>{name.toLowerCase()}</h1> */}
-							<div className='container-images'>
-								<img
-									// loading='lazy'
-									className='container-image'
-									alt={`photo of ${name}`}
-									src={image}
-								/>
-								<img
-									// loading='lazy'
-									className='container-image'
-									alt={`photo of ${name} 2`}
-									src={image}
-								/>
+					{/* <a className='site-link' href={githubLink}> */}
+					<div className='container-content'>
+						<div className='container-images'>
+							<img
+								// loading='lazy'
+								className='container-image'
+								alt={`photo of ${name}`}
+								src={image}
+							/>
+							<img
+								loading='lazy'
+								className='container-image'
+								alt={`photo of ${name} 2`}
+								src={image}
+							/>
+						</div>
+
+						<div className='container-info'>
+							<p className='container-description'>{description}</p>
+							<div className='container-icons'>
+								{languagesUsed.map((language, i) => (
+									<i
+										key={languagesUsed.indexOf(language)}
+										title={language.toUpperCase()}
+										className={`devicon-${language}-plain`}
+									></i>
+								))}
 							</div>
+							<div className='container-buttons'>
+								<button className='github-link'>Github</button>
 
-							<div className='container-info'>
-								<p className='container-description'>{description}</p>
-								<div className='container-icons'>
-									{languagesUsed.map((language, i) => (
-										<i
-											key={i}
-											title={language.toUpperCase()}
-											className={`devicon-${language}-plain`}
-										></i>
-									))}
-								</div>
-								<div className='container-buttons'>
-									<button className='github-link'>
-										{/* <IconContext.Provider
-											value={{
-												size: '100%',
-												color: '#b3c99c',
-											}}
-										>
-											<FaGithubSquare />
-										</IconContext.Provider> */}
-										Github
-									</button>
-
-									<button className='github-link'>Check It Out</button>
-								</div>
+								<button className='github-link'>Visit</button>
 							</div>
 						</div>
-					</a>
+					</div>
+					{/* </a> */}
 				</>
 			)}
 		</div>

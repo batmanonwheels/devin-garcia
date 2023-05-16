@@ -22,11 +22,11 @@ export default function NavBar({
 }: NavBarProps) {
 	return (
 		<div className='navbar'>
-			<a className={`nav-item-text`} href='/about'>
-				about
-			</a>
 			<a className={`nav-item-text`} href='/works'>
 				portfolio
+			</a>
+			<a className={`nav-item-text`} href='/about'>
+				about
 			</a>
 			<a className={`nav-item-text`} href='/contact'>
 				contact

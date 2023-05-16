@@ -3,6 +3,7 @@ import Carousel from './Carousel';
 import Nav from './Nav';
 import { useState, useEffect } from 'react';
 import NavDrawer from './NavDrawer';
+import Texture from './Texture';
 
 export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
@@ -19,7 +20,6 @@ export default function App() {
 			setIsDarkMode(false);
 			document.documentElement.setAttribute('data-theme', 'light');
 		}
-		console.log(document.documentElement);
 	};
 
 	useEffect(() => {
@@ -34,7 +34,19 @@ export default function App() {
 	}, [carouselContainer]);
 
 	const handleNavDrawer = (): void => {
-		setOpenNavDrawer(!openNavDrawer);
+		const button: Element | null = document.querySelector('.burger-button');
+		if (button) {
+			const currentState = button.getAttribute('data-state');
+
+			if (!currentState || currentState === 'closed') {
+				button.setAttribute('data-state', 'opened');
+				button.setAttribute('aria-expanded', 'true');
+			} else {
+				button.setAttribute('data-state', 'closed');
+				button.setAttribute('aria-expanded', 'false');
+			}
+			setOpenNavDrawer(!openNavDrawer);
+		}
 	};
 
 	return (
@@ -48,6 +60,7 @@ export default function App() {
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
 			<>
+				<Texture />
 				<Nav
 					isDarkMode={isDarkMode}
 					setIsDarkMode={setIsDarkMode}

@@ -22,9 +22,15 @@ export default function Nav({
 	handleTheme,
 }: NavProps) {
 	return (
-		<div className='nav'>
+		<header className='nav'>
 			<a className='title-link' href='/'>
-				<h1 className='title'>devin garcia</h1>
+				<h1 className='title'>
+					{'devin garcia'.split('').map((l, i) => (
+						<span key={l + i} className='title-letter'>
+							{l}
+						</span>
+					))}
+				</h1>
 			</a>
 			<NavBar
 				isDarkMode={isDarkMode}
@@ -34,11 +40,29 @@ export default function Nav({
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
-			<IconContext.Provider
-				value={{ size: '2rem', className: 'burger-button' }}
+
+			<button
+				className='burger-button'
+				aria-controls='primary-navigation'
+				aria-expanded='false'
+				onClick={() => handleNavDrawer()}
 			>
-				<CgMenu onClick={handleNavDrawer} />
-			</IconContext.Provider>
-		</div>
+				<svg
+					stroke='var(--accent-color)'
+					fill='none'
+					className='hamburger'
+					viewBox='10 10 100 100'
+					width='3rem'
+				>
+					<path
+						className='line'
+						strokeWidth='5'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						d='m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70'
+					></path>
+				</svg>
+			</button>
+		</header>
 	);
 }
