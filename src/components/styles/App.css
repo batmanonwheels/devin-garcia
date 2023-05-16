@@ -6,10 +6,47 @@
 	overflow-y: hidden;
 	overflow-x: hidden;
 	transition: background 1ms;
+	background-image: radial-gradient(
+			circle,
+			transparent 0.025rem,
+			var(--bg-color) 0.25rem
+		),
+		linear-gradient(var(--secondary-color), 0.025rem, transparent 0.1rem),
+		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem);
+	background-size: 1rem 1rem;
+	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
 }
 
 @media screen and (min-width: 850px) {
-	#root {
+	/* #root {
+		background-image: radial-gradient(
+				circle,
+				transparent 0.025rem,
+				var(--bg-color) 0.25rem
+			),
+			linear-gradient(var(--secondary-color), 0.025rem, transparent 0.1rem),
+			linear-gradient(
+				90deg,
+				var(--secondary-color) 0.025rem,
+				transparent 0.1rem
+			);
+		background-size: 1rem 1rem;
+		background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+		 background-image: radial-gradient(
+				circle,
+				transparent 0.25rem,
+				var(--bg-color) 0.25rem
+			),
+			linear-gradient(var(--accent-color), 0.025rem, transparent 0.1rem),
+			linear-gradient(
+				90deg,
+				var(--secondary-color) 0.025rem,
+				transparent 0.1rem
+			);
+		background-size: 1rem 1rem;
+		background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem; } */
+
+	/* #root {
 		background-image: radial-gradient(
 				circle,
 				transparent 0.25rem,
@@ -23,5 +60,5 @@
 			);
 		background-size: 1rem 1rem;
 		background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
-	}
+	} */
 }

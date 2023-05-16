@@ -25,28 +25,28 @@
 	--border-light-thickness: 0.1em;
 	--border-heavy-thickness: 0.15em;
 
-	/* --bg-color: #f0e9d2;
-	--primary-color: #e6ddc4;
-	--secondary-color: #e6ddc4;
-	--accent-color: #678983;
-	--shadow-color: #181d31;
-	--font-color: #121626; */
-	--bg-color: #faf9f6;
+	/* --bg-color: #faf9f6;
 	--primary-color: #f0e9d2;
 	--secondary-color: #e6ddc4;
 	--accent-color: #678983;
 	--shadow-color: #181d31;
-	--font-color: #121626;
+	--font-color: #222222; */
+
+	--bg-color: #ebe5e9;
+	--primary-color: #8e9a8d;
+	--secondary-color: #d2dbd1;
+	--accent-color: #998d9a;
+	--shadow-color: #998d9a;
+	--font-color: #444b45;
 }
 
 /*dark mode */
 [data-theme='dark'] {
-	--bg-color: #181d31;
-	--primary-color: #181d31;
-	--secondary-color: #678983;
-	--accent-color: #678983;
-	--shadow-color: #e6ddc4;
-	--font-color: #faf9f6;
+	--bg-color: #1f2320;
+	--primary-color: #998d9a;
+	--secondary-color: #444b45;
+	--accent-color: #8e9a8d;
+	--font-color: #dbdfff;
 	/* --bg-color: #181d31;
 	--primary-color: #181d31;
 	--secondary-color: #678983;
@@ -72,6 +72,7 @@ span {
 }
 
 h1 {
+	color: var(--accent-color);
 	font-family: 'Kyiv Tilt';
 	cursor: pointer;
 }
@@ -102,6 +103,7 @@ html {
 body {
 	height: 100%;
 	width: 100%;
+	/* background-color: var(--bg-color); */
 }
 
 *::-webkit-scrollbar {

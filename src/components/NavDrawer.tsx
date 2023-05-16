@@ -26,23 +26,23 @@ export default function NavDrawer({
 			<div className={`nav-drawer${openNavDrawer ? ' show' : ''}`}>
 				<ul className={`nav-list${openNavDrawer ? '' : ' hide'}`}>
 					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
-						<a href='/'>
+						<a href='/works'>
 							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								HOME
+								portfolio
 							</h4>
 						</a>
 					</li>
 					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
-						<a href='/works'>
+						<a href='/about'>
 							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								PORTFOLIO
+								about
 							</h4>
 						</a>
 					</li>
 					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
 						<a href='/contact'>
 							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								CONTACT
+								contact
 							</h4>
 						</a>
 					</li>

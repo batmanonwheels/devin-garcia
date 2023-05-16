@@ -1,10 +1,20 @@
+/* #portfolio::before {
+	height: 100%;
+	width: 100%;
+	filter: url(#grainy);
+	z-index: 100;
+	background-color: antiquewhite;
+	position: absolute;
+} */
+
 .carousel-container {
 	height: 95%;
 	width: 98%;
 	max-width: min(98%, 1280px);
+	max-height: max-content;
 	margin: auto;
-	border-top: var(--border-heavy-thickness) solid var(--secondary-color);
-	border-bottom: var(--border-heavy-thickness) solid var(--secondary-color);
+	border-top: var(--border-heavy-thickness) solid var(--accent-color);
+	border-bottom: var(--border-heavy-thickness) solid var(--accent-color);
 	border-inline: var(--border-heavy-thickness) solid transparent;
 	overflow-y: scroll;
 	border-radius: var(--border-radius);
@@ -12,29 +22,31 @@
 
 .previous-containers {
 	border-top: none;
-	max-height: 15.2%;
-	height: 100%;
+	min-height: 12.7%;
+	height: 12.7%;
 	position: sticky;
+	position: -webkit-sticky;
 	top: 0;
 	z-index: 10;
 }
 
 .next-containers {
 	display: inline;
-	max-height: 85%;
+	max-height: 87.5%;
 	overflow-y: hidden;
+	margin: auto auto;
 }
 
-.container {
-	height: 100%;
+.container-item {
+	height: 87.5%;
 	width: 100%;
-	max-height: 85%;
+	max-height: 87.5%;
 	margin: auto;
 	border: 0.05em solid black;
 	z-index: inherit;
-	overflow: hidden;
-	background-color: var(--bg-color);
-	background-image: radial-gradient(
+	overflow: clip;
+	/* background-color: var(--bg-color); */
+	/* background-image: radial-gradient(
 			circle,
 			transparent 0.025rem,
 			var(--bg-color) 0.25rem
@@ -42,46 +54,44 @@
 		linear-gradient(var(--secondary-color), 0.025rem, transparent 0.1rem),
 		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem);
 	background-size: 1rem 1rem;
-	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem; */
 }
 
-.previous-containers > .container {
+.previous-containers > .container-item {
 	border-top: none;
 }
 
-.next-containers > .container {
+.next-containers > .container-item {
 	border-bottom: none;
 }
 
-.next-containers > .container:hover {
-}
-
 .container-heading {
-	position: -webkit-sticky;
 	position: sticky;
-	top: 0;
+	position: -webkit-sticky;
+	/* top: 15%; */
 	display: flex;
 	justify-content: space-between;
-	z-index: 1;
+	z-index: 100;
 }
 .container-heading > h4 {
-	margin: 0.2rem;
-	margin-left: 1rem;
-	margin-right: 1rem;
+	margin: 0.2rem 1rem;
+	/* margin-left: 1rem;
+	margin-right: 1rem; */
 	font-size: 1rem;
 	text-overflow: ellipsis;
-	color: var(--accent-color);
-	transition: all 1ms ease;
+	/* color: var(--accent-color); */
+	transition: font-weight 500ms, font-variation-settings 500ms;
 }
 
 .container-heading:hover > h4:nth-child(1) {
 	font-variation-settings: 'wght' 1000, 'CONT' 500, 'MIDL' -100;
 }
 
-.container-heading:hover > h4:nth-child(2) {
+/* .container-heading:hover > h4:nth-child(2) {
 	font-variation-settings: 'wght' 500, 'CONT' 500, 'MIDL' -100;
-}
+} */
 
+/*
 .container-title {
 	display: none;
 	opacity: 0;
@@ -96,11 +106,12 @@
 	z-index: 0;
 	text-overflow: clip;
 	white-space: nowrap;
+	transition: all 10s ease;
 }
 
 .container-title:hover {
 	font-variation-settings: 'wght' 750, 'CONT' 800, 'MIDL' -500;
-}
+} */
 
 .container-content {
 	width: 100%;
@@ -123,8 +134,8 @@
 	max-width: 85%;
 	object-fit: fill;
 	z-index: -1;
-	border: var(--border-light-thickness) solid var(--secondary-color);
-	box-shadow: 0 10px 6px -6px var(--shadow-color);
+	border: var(--border-light-thickness) solid;
+	box-shadow: 0 10px 6px -6px;
 	border-radius: var(--border-radius);
 }
 
@@ -153,6 +164,8 @@
 	width: 90%;
 	position: absolute;
 	border-radius: var(--border-radius);
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 	bottom: 5%;
 	/* margin-inline: 10rem; */
 	padding-inline: 2rem;
@@ -162,9 +175,9 @@
 	margin-left: 5%;
 	margin-right: 5%;
 	/* z-index: 1; */
-	background: var(--bg-color);
-	box-shadow: 0.2rem 0.2rem var(--shadow-color);
-	transition: all 1s ease;
+	background-color: var(--bg-color);
+	box-shadow: 0.05rem 0.05rem;
+	/* transition: all 1s ease; */
 	/* transition: all 1s; */
 }
 
@@ -178,6 +191,7 @@
 
 .container-icons {
 	display: flex;
+
 	justify-content: space-evenly;
 	padding-bottom: 1rem;
 }
@@ -203,29 +217,35 @@
 	font-family: 'Kyiv Sans';
 	z-index: 3;
 	border-radius: var(--border-radius);
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	cursor: pointer;
+
 	width: 10rem;
 	height: 2.5rem;
-	background-color: var(--secondary-color);
+	background-color: var(--primary-color);
 	color: var(--font-color);
 	border: var(--border-light-thickness) solid var(--secondary-color);
-	font-size: 1em;
+	font-size: 0.9em;
 	/* text-rendering: optimizeLegibility; */
-	box-shadow: 0.1rem 0.1rem var(--shadow-color);
+	box-shadow: 0.05rem 0.05rem var(--shadow-color);
 	font-variation-settings: 'wght' 500, 'CONT' 500, 'MIDL' -500;
 }
 
 .container-buttons > button:nth-child(odd) {
 	box-shadow: none;
-	background-color: inherit;
-	color: var(--font-color);
-	border: none;
+	background-color: var(--secondary-color);
+
+	margin-inline: 1rem;
+	/* border: none; */
 }
 
 .container-buttons > button:nth-child(even) {
-	font-size: 0.8em;
+	font-size: 1.2em;
+	color: var(--bg-color);
 }
 
-.previous-containers > .container {
+.previous-containers > .container-item {
 	height: calc(100% / 3);
 }
 
@@ -237,21 +257,22 @@
 	top: 15%;
 }
 
-.next-containers > .container {
+.next-containers > .container-item {
 	position: sticky;
+	position: -webkit-sticky;
 	height: 100%;
 	width: 100%;
 	z-index: inherit;
 }
 
-.previous-containers > .container {
+.previous-containers > .container-item {
 	background-color: var(--bg-color);
 	background-image: none;
 }
-.previous-containers > .container > .container-content {
+.previous-containers > .container-item > .container-content {
 	display: none;
 }
-.previous-containers > .container > .container-buttons {
+.previous-containers > .container-item > .container-buttons {
 	display: none;
 }
 @media screen and (min-width: 850px) {
@@ -275,15 +296,15 @@
 		flex-wrap: wrap;
 		margin-right: 1rem;
 		z-index: 5;
-		transition: all 2s ease;
+		/* transition: all 2s ease; */
 		min-width: 80%;
 		max-width: 90%;
 		min-height: 50%;
 		max-height: 70%;
 		background: var(--bg-color);
-		box-shadow: 0.2rem 0.2rem var(--shadow-color);
+		box-shadow: 0.1rem 0.1rem var(--shadow-color);
 		border-radius: var(--border-light-thickness);
-		transition: all 2s ease;
+		/* transition: all 2s ease; */
 	}
 
 	.container-info > div {
@@ -320,10 +341,6 @@
 	.container-icons > .icon-container > p {
 		font-size: 70%;
 		color: var(--font-color);
-	}
-
-	.container-buttons {
-		justify-content: space-between;
 	}
 
 	.container-buttons > button {
