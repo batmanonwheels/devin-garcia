@@ -19,34 +19,59 @@ export default function NavDrawer({
 	handleTheme,
 }: NavDrawerProps) {
 	return (
-		<>
-			{openNavDrawer ? (
-				<div className='nav-drawer-transparent' onClick={handleNavDrawer}></div>
+		<div
+			className={`nav-drawer${openNavDrawer ? ' show' : ''}`}
+			onClick={handleNavDrawer}
+		>
+			<ul className='nav-drawer-list'>
+				<li className='drawer-item'>
+					<a href='/home' className='drawer-link'>
+						home
+					</a>
+				</li>
+				<li className='drawer-item'>
+					<a href='/works' className='drawer-link'>
+						works
+					</a>
+				</li>
+				<li className='drawer-item'>
+					<a href='/contact' className='drawer-link'>
+						contact
+					</a>
+				</li>
+				<li className='drawer-item'>
+					<DarkModeSwitch
+						className='theme-toggle'
+						checked={isDarkMode}
+						onChange={(e) => handleTheme(e)}
+						size={60}
+					/>
+				</li>
+			</ul>
+		</div>
+	);
+}
+
+{
+	/* {openNavDrawer ? (
+				<div
+					className='nav-drawer nav-drawer-transparent'
+
+				></div>
 			) : null}
 			<div className={`nav-drawer${openNavDrawer ? ' show' : ''}`}>
-				<ul className={`nav-list${openNavDrawer ? '' : ' hide'}`}>
-					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
+				<ul className={`nav-drawer nav-list`}>
+					<li className={`nav-drawer nav-item`}>
 						<a href='/works'>
-							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								portfolio
-							</h4>
+							<h4 className={`nav-drawer nav-item-text`}>works</h4>
 						</a>
 					</li>
-					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
-						<a href='/about'>
-							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								about
-							</h4>
-						</a>
-					</li>
-					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
+					<li className={`nav-drawer nav-item`}>
 						<a href='/contact'>
-							<h4 className={`nav-item-text${openNavDrawer ? '' : ' hide'}`}>
-								contact
-							</h4>
+							<h4 className={`nav-drawer nav-item-text`}>contact</h4>
 						</a>
 					</li>
-					<li className={`nav-item${openNavDrawer ? '' : ' hide'}`}>
+					<li className={`nav-drawer nav-item-text`}>
 						<DarkModeSwitch
 							className='theme-toggle'
 							checked={isDarkMode}
@@ -55,7 +80,5 @@ export default function NavDrawer({
 						/>
 					</li>
 				</ul>
-			</div>
-		</>
-	);
+			</div> */
 }

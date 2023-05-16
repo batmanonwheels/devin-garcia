@@ -12,7 +12,6 @@ interface NavProps {
 	setIsDarkMode: (bool: boolean) => void;
 	handleTheme: (e: boolean) => void;
 }
-
 export default function Nav({
 	handleNavDrawer,
 	openNavDrawer,
@@ -40,7 +39,6 @@ export default function Nav({
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
-
 			<button
 				className='burger-button'
 				aria-controls='primary-navigation'
