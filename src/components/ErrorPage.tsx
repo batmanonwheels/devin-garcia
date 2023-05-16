@@ -23,7 +23,7 @@ export default function ErrorPage() {
 		errorMessage = error.error.message.split('"')[1];
 	}
 
-	const routes: string[] = ['/', '/about', '/works', '/contact'];
+	const routes: string[] = ['/', '/works', '/contact'];
 
 	const routeSimilarities: number[] = routes.map((str) =>
 		stringSimilarity(str, errorMessage)
