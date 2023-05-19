@@ -59,7 +59,7 @@ export default function App() {
 				openNavDrawer={openNavDrawer}
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
-			<>
+			<div id='main'>
 				{/* <Texture /> */}
 				<Nav
 					isDarkMode={isDarkMode}
@@ -70,7 +70,7 @@ export default function App() {
 					setOpenNavDrawer={setOpenNavDrawer}
 				/>
 				<Carousel setCarouselContainer={setCarouselContainer} />
-			</>
+			</div>
 		</>
 	);
 }

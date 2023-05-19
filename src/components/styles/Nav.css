@@ -1,10 +1,10 @@
 .nav {
-	max-width: min(97.5%);
+	max-width: min(98%, 1280px);
 	justify-content: space-around;
-	margin-right: 0;
-	max-height: 2rem;
+	margin: auto;
+	height: 2rem;
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr) 0.5fr;
 	z-index: 1200;
 }
 

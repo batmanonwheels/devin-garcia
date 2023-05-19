@@ -1,4 +1,4 @@
-import { useRef, RefObject, useState } from 'react';
+import { useState } from 'react';
 import PortfolioContainer from './PortfolioContainer';
 import { revProjects as projects, Project } from '../data/works';
 import './styles/Portfolio.css';
@@ -44,29 +44,31 @@ export default function Portfolio({
 			//height of single portfolio container
 			const singleContainerHeight: number = singleContainer.offsetHeight;
 
-			//get index of portfolio container currently on screen
+			//get index of portfolio container currently on screen by adding the current scroll height to double the current sticky container height in order to have it update when the bottom of the portfolio container intersects bottom border of the bottommost element in the sticky container div
 			const currentIndex =
 				Math.trunc(
-					(scrollY + currentStickyContainerHeight) / singleContainerHeight
+					(scrollY + currentStickyContainerHeight * 2) / singleContainerHeight
 				) + 1;
 
+			//get the heading of the current
+			let currentContainerHeading: HTMLElement = target.children[1].children[
+				currentIndex - 1
+			].children[0] as HTMLElement;
+
 			if (scrollY >= stickyContainerDivHeight) {
+				//if the current scroll height is greater than the current sticky container height, set the copiedProjects array to the 3 containers above the one currently on screen
 				setCopiedProjects(
 					projects.filter(
 						(project) =>
 							project.id <= currentIndex - 1 && project.id >= currentIndex - 3
 					)
 				);
+				// change top attribute of each portfolio container based on how many elements are in the sticky container
+				currentContainerHeading.style.top = currentStickyContainerHeight + 'px';
 			} else {
+				//if the current scroll height is greater than the current sticky container height should mean that the user is at the top of the carousel, so empty the copiedProjects array
 				setCopiedProjects([]);
 			}
-
-			// change top attribute of each portfolio container based on how many elements are in the sticky container
-			let currentContainerHeading: HTMLElement = target.children[1].children[
-				currentIndex - 1
-			].children[0] as HTMLElement;
-
-			currentContainerHeading.style.top = currentStickyContainerHeight + 'px';
 		}
 	};
 
@@ -85,7 +87,7 @@ export default function Portfolio({
 						key={i}
 						id={project.id}
 						name={project.name}
-						image={project.image}
+						images={project.images}
 						dateCreated={project.date_created}
 						deployedLink={project.deployed_link}
 						languagesUsed={project.languages_used}
@@ -101,7 +103,7 @@ export default function Portfolio({
 						key={i}
 						id={project.id}
 						name={project.name}
-						image={project.image}
+						images={project.images}
 						dateCreated={project.date_created}
 						deployedLink={project.deployed_link}
 						languagesUsed={project.languages_used}

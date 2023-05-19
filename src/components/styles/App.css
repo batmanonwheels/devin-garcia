@@ -1,20 +1,43 @@
 #root {
-	height: 100svh;
-	width: 100svw;
-	max-width: 100%;
-	background-color: var(--bg-color);
-	overflow-y: hidden;
-	overflow-x: hidden;
-	transition: background 1ms;
+	background: radial-gradient(
+		circle at 100%,
+		#333,
+		#333 50%,
+		#eee 75%,
+		#333 75%
+	);
 	background-image: radial-gradient(
 			circle,
 			transparent 0.025rem,
 			var(--bg-color) 0.25rem
 		),
 		linear-gradient(var(--secondary-color), 0.025rem, transparent 0.1rem),
-		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem);
+		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem),
+		radial-gradient(circle, transparent 1rem, var(--secondary-color) 0.1rem);
 	background-size: 1rem 1rem;
 	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+}
+
+#main {
+	height: 100svh;
+	width: 100svw;
+	max-width: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	transition: background 1ms;
+}
+
+.carousel-container {
+	height: 95%;
+	width: 98%;
+	max-width: min(98%, 1280px);
+	max-height: max-content;
+	margin: auto;
+	border-top: var(--border-heavy-thickness) solid var(--accent-color);
+	border-bottom: var(--border-heavy-thickness) solid var(--accent-color);
+	border-inline: var(--border-heavy-thickness) solid transparent;
+	overflow-y: scroll;
+	border-radius: var(--border-radius);
 }
 
 @media screen and (min-width: 850px) {
