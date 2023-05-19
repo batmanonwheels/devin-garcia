@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 interface PortfolioContainerProps {
 	id: number;
 	name: string;
-	image: string;
+	images: string[];
 	dateCreated: string;
 	deployedLink?: string;
 	languagesUsed: string[];
@@ -15,7 +15,7 @@ interface PortfolioContainerProps {
 export default function PortfolioContainer({
 	id,
 	name,
-	image,
+	images,
 	dateCreated,
 	deployedLink,
 	languagesUsed,
@@ -41,23 +41,27 @@ export default function PortfolioContainer({
 						<h4>{name}</h4>
 						<h4>{dateCreated}</h4>
 					</div>
-					{/* <a className='site-link' href={githubLink}> */}
 					<div className='container-content'>
-						<div className='container-images'>
-							<img
-								// loading='lazy'
-								className='container-image'
-								alt={`photo of ${name}`}
-								src={image}
-							/>
+						{images.length >= 2 ? (
+							<div className='container-images'>
+								{images.map((image, i) => (
+									<img
+										key={images.indexOf(image)}
+										loading='lazy'
+										className={`container-image`}
+										alt={`photo of ${name} ${i + 1}`}
+										src={image}
+									/>
+								))}
+							</div>
+						) : (
 							<img
 								loading='lazy'
-								className='container-image'
-								alt={`photo of ${name} 2`}
-								src={image}
+								className={`container-image`}
+								alt={`photo of ${name}`}
+								src={images[0]}
 							/>
-						</div>
-
+						)}
 						<div className='container-info'>
 							<p className='container-description'>{description}</p>
 							<div className='container-icons'>
@@ -76,7 +80,6 @@ export default function PortfolioContainer({
 							</div>
 						</div>
 					</div>
-					{/* </a> */}
 				</>
 			)}
 		</div>

@@ -1,5 +1,3 @@
-import { IconContext } from 'react-icons';
-import { CgMenu } from 'react-icons/cg';
 import './styles/Nav.css';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
@@ -21,22 +19,19 @@ export default function NavBar({
 	handleTheme,
 }: NavBarProps) {
 	return (
-		<div className='navbar'>
-			<a className={`nav-item-text`} href='/works'>
-				portfolio
+		<>
+			<a className={`navbar nav-item-text`} href='/works'>
+				works
 			</a>
-			<a className={`nav-item-text`} href='/about'>
-				about
-			</a>
-			<a className={`nav-item-text`} href='/contact'>
+			<a className={`navbar nav-item-text`} href='/contact'>
 				contact
 			</a>
 			<DarkModeSwitch
-				className='theme-toggle'
+				className='navbar theme-toggle'
 				checked={isDarkMode}
 				onChange={(e) => handleTheme(e)}
 				size={30}
 			/>
-		</div>
+		</>
 	);
 }

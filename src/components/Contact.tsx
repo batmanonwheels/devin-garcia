@@ -1,3 +1,3 @@
 export default function Contact() {
-	return <div></div>;
+	return <div className='carousel-container' id='contact'></div>;
 }

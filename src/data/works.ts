@@ -1,7 +1,7 @@
 export interface Project {
 	id: number;
 	name: string;
-	image: string;
+	images: string[];
 	date_created: string;
 	deployed_link?: string;
 	languages_used: string[];
@@ -9,12 +9,13 @@ export interface Project {
 	description: string;
 }
 
-const projects: Array<Project> = [
+const projects: Project[] = [
 	{
 		id: 7,
 		name: "F*ck That's A Map",
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
+		],
 		date_created: 'APR.2.2023',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/f-thats-delicious',
@@ -25,8 +26,9 @@ const projects: Array<Project> = [
 	{
 		id: 6,
 		name: 'NoteAbility',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
+		],
 		date_created: 'NOV.21.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
@@ -44,8 +46,9 @@ const projects: Array<Project> = [
 	{
 		id: 5,
 		name: 'Synesthesia',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
+		],
 		date_created: 'AUG.9.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
@@ -64,8 +67,9 @@ const projects: Array<Project> = [
 	{
 		id: 4,
 		name: 'GameSquad',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
+		],
 		date_created: 'JUL.28.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/game_squad_frontend',
@@ -84,8 +88,9 @@ const projects: Array<Project> = [
 	{
 		id: 3,
 		name: 'The Ship',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
+		],
 		date_created: 'JUL.11.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/bro-san/the-SHIP-frontend',
@@ -104,8 +109,9 @@ const projects: Array<Project> = [
 	{
 		id: 2,
 		name: 'Kitty Collective',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/217098731-71317e59-c0e9-4489-910f-ddb2c117a8a7.png',
+		],
 		date_created: 'JUN.20.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
@@ -116,8 +122,9 @@ const projects: Array<Project> = [
 	{
 		id: 1,
 		name: 'National Park Pal',
-		image:
+		images: [
 			'https://user-images.githubusercontent.com/5254749/188505347-d56efbd4-b775-4f18-bbbd-e49b558368e7.png',
+		],
 		date_created: 'MAY.31.2022',
 		deployed_link: 'https://hkassow.github.io/phase-1-parks-project/',
 		github_link: 'https://github.com/hkassow/phase-1-parks-project',

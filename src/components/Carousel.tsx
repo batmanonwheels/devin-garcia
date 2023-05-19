@@ -23,10 +23,6 @@ export default function Carousel({ setCarouselContainer }: CarouselProps) {
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: '/about',
-			element: <About />,
-		},
-		{
 			path: '/works',
 			element: <Portfolio setCarouselContainer={setCarouselContainer} />,
 		},
@@ -36,5 +32,9 @@ export default function Carousel({ setCarouselContainer }: CarouselProps) {
 		},
 	]);
 
-	return <RouterProvider router={router} />;
+	return (
+		// <div>
+		<RouterProvider router={router} />
+		// </div>
+	);
 }
