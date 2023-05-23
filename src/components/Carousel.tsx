@@ -6,8 +6,6 @@ import {
 import Home from './Home';
 import Portfolio from './Portfolio';
 import ErrorPage from './ErrorPage';
-import Contact from './Contact';
-import About from './About';
 
 interface CarouselProps {
 	setCarouselContainer: React.Dispatch<
@@ -25,10 +23,6 @@ export default function Carousel({ setCarouselContainer }: CarouselProps) {
 		{
 			path: '/works',
 			element: <Portfolio setCarouselContainer={setCarouselContainer} />,
-		},
-		{
-			path: '/contact',
-			element: <Contact />,
 		},
 	]);
 
