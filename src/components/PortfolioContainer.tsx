@@ -63,7 +63,6 @@ export default function PortfolioContainer({
 							/>
 						)}
 						<div className='container-info'>
-							<p className='container-description'>{description}</p>
 							<div className='container-icons'>
 								{languagesUsed.map((language, i) => (
 									<i
@@ -73,12 +72,16 @@ export default function PortfolioContainer({
 									></i>
 								))}
 							</div>
-							<div className='container-buttons'>
-								<button className='github-link'>Github</button>
-
-								<button className='github-link'>Visit</button>
-							</div>
+							<h4 className='container-description'>{description}</h4>
 						</div>
+					</div>
+					<div className='container-footer'>
+						<button className='footer-button'>
+							<h2>Github</h2>
+						</button>
+						<button className='footer-button'>
+							<h2>Visit</h2>
+						</button>
 					</div>
 				</>
 			)}

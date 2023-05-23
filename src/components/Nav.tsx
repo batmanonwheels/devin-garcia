@@ -24,7 +24,7 @@ export default function Nav({
 		<header className='nav'>
 			<a className='title-link' href='/'>
 				<h1 className='title'>
-					{'devin garcia'.split('').map((l, i) => (
+					{'iam.dev'.split('').map((l, i) => (
 						<span key={l + i} className='title-letter'>
 							{l}
 						</span>

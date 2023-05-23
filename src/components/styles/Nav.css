@@ -30,8 +30,14 @@
 	font-variation-settings: inherit;
 	color: inherit;
 	display: inline-block;
-	transition: transform 1s ease;
+	opacity: 1;
+	transition: transform 500ms ease;
 	z-index: inherit;
+}
+
+.title:hover {
+	font-weight: 750;
+	/* font-variation-settings: 'CONT' 500, 'MIDL' -1000; */
 }
 
 .burger-button {
@@ -78,9 +84,8 @@
 	transition: font-weight 500ms, font-variation-settings 500ms;
 }
 
-.nav-item-text,
-.title:hover {
-	font-weight: 50;
+.nav-item-text:hover {
+	font-weight: 500;
 	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
 }
 
@@ -139,17 +144,15 @@
 	height: 0.5rem;
 }
 
-.theme-toggle svg {
+.nav-drawer > .theme-toggle {
 	padding-right: 0.25rem;
 	position: absolute;
 	top: 0.25%;
 	right: 0.25%;
-}
-
-.nav-drawer svg {
 	color: var(--primary-color);
 }
-.nav-drawer svg > circle {
+
+.nav-drawer > .theme-toggle > circle {
 	color: var(--secondary-color);
 	fill: var(--secondary-color);
 }
@@ -209,22 +212,24 @@ a {
 		transition: transform 2.5s ease;
 	}
 
+	.title:hover > .title-letter:nth-child(2) {
+		transform: translate(0.5rem);
+	}
+	.title:hover > .title-letter:nth-child(3) {
+		transform: translate(0.5rem);
+	}
+	.title:hover > .title-letter:nth-child(4) {
+		opacity: 0;
+		transform: translateY(0.5rem);
+		transform: translateX(0.5rem);
+	}
+	.title:hover > .title-letter:nth-child(5) {
+		transform: translate(0.5rem);
+	}
+	.title:hover > .title-letter:nth-child(6) {
+		transform: translate(0.5rem);
+	}
 	.title:hover > .title-letter:nth-child(7) {
-		transform: translate(0.5rem);
-	}
-	.title:hover > .title-letter:nth-child(8) {
-		transform: translate(0.5rem);
-	}
-	.title:hover > .title-letter:nth-child(9) {
-		transform: translate(0.5rem);
-	}
-	.title:hover > .title-letter:nth-child(10) {
-		transform: translate(0.5rem);
-	}
-	.title:hover > .title-letter:nth-child(11) {
-		transform: translate(0.5rem);
-	}
-	.title:hover > .title-letter:nth-child(12) {
 		transform: translate(0.5rem);
 	}
 
@@ -291,10 +296,11 @@ a {
 		right: 0.25%;
 	}
 
-	.navbar.theme-toggle svg {
+	.navbar.theme-toggle {
 		color: var(--primary-color);
+		fill: var(--primary-color);
 	}
-	.navbar.theme-toggle svg > circle {
+	.navbar.theme-toggle circle {
 		color: var(--secondary-color);
 		fill: var(--secondary-color);
 	}
