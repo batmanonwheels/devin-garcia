@@ -22,6 +22,7 @@ export default function NavDrawer({
 		<div
 			className={`nav-drawer${openNavDrawer ? ' show' : ''}`}
 			onClick={handleNavDrawer}
+			aria-hidden={`${openNavDrawer ? 'false' : 'true'}`}
 		>
 			<ul className='nav-drawer-list'>
 				<li className='drawer-item'>
@@ -50,35 +51,4 @@ export default function NavDrawer({
 			</ul>
 		</div>
 	);
-}
-
-{
-	/* {openNavDrawer ? (
-				<div
-					className='nav-drawer nav-drawer-transparent'
-
-				></div>
-			) : null}
-			<div className={`nav-drawer${openNavDrawer ? ' show' : ''}`}>
-				<ul className={`nav-drawer nav-list`}>
-					<li className={`nav-drawer nav-item`}>
-						<a href='/works'>
-							<h4 className={`nav-drawer nav-item-text`}>works</h4>
-						</a>
-					</li>
-					<li className={`nav-drawer nav-item`}>
-						<a href='/contact'>
-							<h4 className={`nav-drawer nav-item-text`}>contact</h4>
-						</a>
-					</li>
-					<li className={`nav-drawer nav-item-text`}>
-						<DarkModeSwitch
-							className='theme-toggle'
-							checked={isDarkMode}
-							onChange={(e) => handleTheme(e)}
-							size={30}
-						/>
-					</li>
-				</ul>
-			</div> */
 }
