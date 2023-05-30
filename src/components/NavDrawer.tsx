@@ -20,7 +20,7 @@ export default function NavDrawer({
 }: NavDrawerProps) {
 	return (
 		<div
-			className={`nav-drawer${openNavDrawer ? ' show' : ''}`}
+			className={`nav-drawer${openNavDrawer ? ' show' : ' hide'}`}
 			onClick={handleNavDrawer}
 			aria-hidden={`${openNavDrawer ? 'false' : 'true'}`}
 		>
