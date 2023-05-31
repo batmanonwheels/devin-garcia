@@ -36,7 +36,9 @@
 	--primary-color: #8e9a8d;
 	--secondary-color: #d2dbd1;
 	--accent-color: #998d9a;
-	--font-color: #444b45;
+	--font-color: #998d9a;
+	/* --icon-color:#444b45 */
+	/* --font-color: #444b45; */
 }
 
 /*dark mode */
@@ -45,7 +47,9 @@
 	--primary-color: #998d9a;
 	--secondary-color: #444b45;
 	--accent-color: #8e9a8d;
-	--font-color: #dbdfff;
+	--font-color: #8e9a8d;
+	/* --icon-color:#dbdfff */
+	/* --font-color: #dbdfff; */
 	/* --bg-color: #181d31;
 	--primary-color: #181d31;
 	--secondary-color: #678983;
