@@ -3,15 +3,14 @@ import PortfolioContainer from './PortfolioContainer';
 import { revProjects as projects, Project } from '../data/works';
 import './styles/Portfolio.css';
 
-interface PortfolioContainerProps {
+interface PortfolioProps {
 	setCarouselContainer: (carouselContainer: HTMLDivElement | null) => void;
 }
 
-export default function Portfolio({
-	setCarouselContainer,
-}: PortfolioContainerProps) {
+export default function Portfolio({ setCarouselContainer }: PortfolioProps) {
 	// create an array to store the copied div elements
 	const [copiedProjects, setCopiedProjects] = useState<Project[]>([]);
+	let lastScrollY: number = 0;
 
 	const handleScroll = (target: HTMLElement): void => {
 		const stickyContainer: HTMLElement = target.children[0] as HTMLElement;

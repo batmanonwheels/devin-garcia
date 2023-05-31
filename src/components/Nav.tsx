@@ -12,6 +12,7 @@ interface NavProps {
 	setIsDarkMode: (bool: boolean) => void;
 	handleTheme: (e: boolean) => void;
 }
+
 export default function Nav({
 	handleNavDrawer,
 	openNavDrawer,
@@ -24,9 +25,10 @@ export default function Nav({
 		<header className='nav'>
 			<a className='title-link' href='/'>
 				<h1 className='title'>
-					{'iam.dev'.split('').map((l, i) => (
-						<span key={l + i} className='title-letter'>
-							{l}
+					{'devin garcia'.split(' ').map((w, i) => (
+						<span key={w + i} className='title-word'>
+							{w}
+							{i === 0 ? ' ' : ''}
 						</span>
 					))}
 				</h1>

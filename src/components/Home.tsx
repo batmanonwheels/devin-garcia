@@ -1,5 +1,7 @@
 import './styles/Home.css';
 
+import { Link } from 'react-router-dom';
+
 export default function Home() {
 	const traits: string[] = [
 		'NYC Based',
@@ -11,6 +13,7 @@ export default function Home() {
 		'Design-focused',
 		'Agile',
 		'Music & Video Game Lover',
+		'Multimedia Artist',
 	];
 	const skills: string[] = [
 		'typescript',
@@ -31,31 +34,46 @@ export default function Home() {
 			<div className='skill-marquee top'>
 				<ul className='marquee-content'>
 					{traits.map((traits, i) => (
-						<li key={`trait ${traits.indexOf(traits)}`}>
+						<li key={`trait ${i}`}>
 							<h3>{traits.toUpperCase()}</h3>
 						</li>
 					))}
 				</ul>
 				<ul className='marquee-content' aria-hidden='true'>
 					{traits.map((traits, i) => (
-						<li key={`trait ${traits.indexOf(traits) + traits.length}`}>
+						<li key={`trait ${i + 10})}`}>
 							<h3>{traits.toUpperCase()}</h3>
 						</li>
 					))}
 				</ul>
 			</div>
-			<div className='div1'>pic</div>
-			<div className='div2'>about</div>
-			<div className='div3'>3å</div>
-			<div className='div4'>fun</div>
-			<div className='div5'>5</div>
-			<div className='div6'>6</div>
-			<div className='div7'>7</div>
-			<div className='div8'>8</div>
+			<div className='body'>
+				<div className='greeting'>
+					<h2>
+						{"Hey, I'm Dev"
+							.toUpperCase()
+							.split(' ')
+							.map((w) => (
+								<span key={w}>{`${w}`}</span>
+							))}
+					</h2>
+				</div>
+				<div className='about'>
+					<h3>
+						{'Fullstack Software Engineer'.split(' ').map((w) => (
+							<span key={w}>{`${w} `}</span>
+						))}
+					</h3>
+				</div>
+
+				<Link className='link' to={'works'}>
+					<h4>View My Portfolio</h4>
+				</Link>
+			</div>
 			<div className='skill-marquee bottom'>
 				<ul className='marquee-content'>
 					{skills.map((tech, i) => (
-						<li key={`tech ${skills.indexOf(tech)}`}>
+						<li key={`tech ${i}`}>
 							<i
 								title={tech.toUpperCase()}
 								className={`devicon-${tech}-plain`}
@@ -65,7 +83,7 @@ export default function Home() {
 				</ul>
 				<ul className='marquee-content' aria-hidden='true'>
 					{skills.map((tech, i) => (
-						<li key={`tech ${skills.indexOf(tech) + skills.length}`}>
+						<li key={`tech ${i + 12}`}>
 							<i
 								title={tech.toUpperCase()}
 								className={`devicon-${tech}-plain`}

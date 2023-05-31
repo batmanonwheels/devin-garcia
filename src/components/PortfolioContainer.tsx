@@ -24,31 +24,34 @@ export default function PortfolioContainer({
 	previousContainer,
 }: PortfolioContainerProps) {
 	return (
-		<div
-			id={`${previousContainer ? id + ' prev' : id}`}
-			className='container-item'
-		>
+		<div id={`${previousContainer ? id + ' prev' : id}`} className='container'>
 			{previousContainer ? (
-				<HashLink className='jump-to-entry' smooth to={`#${id}`}>
-					<div className='container-heading'>
+				<HashLink
+					className='jump-to-entry'
+					to={`#${id}`}
+					scroll={(el) =>
+						el.scrollIntoView({ behavior: 'smooth', block: 'end' })
+					}
+				>
+					<div className='heading'>
 						<h4>{name}</h4>
 						<h4>{dateCreated}</h4>
 					</div>
 				</HashLink>
 			) : (
 				<>
-					<div className='container-heading'>
+					<div className='heading'>
 						<h4>{name}</h4>
 						<h4>{dateCreated}</h4>
 					</div>
-					<div className='container-content'>
+					<div className='content'>
 						{images.length >= 2 ? (
-							<div className='container-images'>
+							<div className='images'>
 								{images.map((image, i) => (
 									<img
 										key={images.indexOf(image)}
 										loading='lazy'
-										className={`container-image`}
+										className={`image`}
 										alt={`photo of ${name} ${i + 1}`}
 										src={image}
 									/>
@@ -57,31 +60,32 @@ export default function PortfolioContainer({
 						) : (
 							<img
 								loading='lazy'
-								className={`container-image`}
+								className={`image`}
 								alt={`photo of ${name}`}
 								src={images[0]}
 							/>
 						)}
-						<div className='container-info'>
-							<div className='container-icons'>
-								{languagesUsed.map((language, i) => (
-									<i
-										key={languagesUsed.indexOf(language)}
-										title={language.toUpperCase()}
-										className={`devicon-${language}-plain`}
-									></i>
-								))}
-							</div>
-							<h4 className='container-description'>{description}</h4>
+						<div className='icons'>
+							{languagesUsed.map((language, i) => (
+								<i
+									key={languagesUsed.indexOf(language)}
+									title={language.toUpperCase()}
+									className={`devicon-${language}-plain`}
+								></i>
+							))}
 						</div>
+						<h4 className='description'>{description}</h4>
 					</div>
-					<div className='container-footer'>
-						<button className='footer-button'>
-							<h2>Github</h2>
-						</button>
-						<button className='footer-button'>
-							<h2>Visit</h2>
-						</button>
+					<div className='footer'>
+						<a className='footer-link' href={githubLink && githubLink}>
+							<h3>github</h3>
+						</a>
+						<a
+							className='footer-link'
+							href={deployedLink ? deployedLink : undefined}
+						>
+							<h3>www.</h3>
+						</a>
 					</div>
 				</>
 			)}

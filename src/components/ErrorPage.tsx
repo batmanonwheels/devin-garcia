@@ -34,7 +34,7 @@ export default function ErrorPage() {
 
 	return (
 		<div id='error-page'>
-			<h2>Sorry, Wrong Castle!</h2>
+			<h2>Sorry, You're In The Wrong Place</h2>
 			<h3>
 				<i>'{errorMessage}' doesn't exist, silly!</i>
 			</h3>
