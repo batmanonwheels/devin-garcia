@@ -54,6 +54,7 @@ export default function Contact() {
 		checked: boolean | null
 	) => {
 		let clone;
+		//if checked is not null, assume that its the checkbox event
 		if (checked !== null) {
 			clone = {
 				...formData,
@@ -128,7 +129,7 @@ export default function Contact() {
 							id='body'
 							name='body'
 							value={formData.body}
-							placeholder='Let it all out..'
+							placeholder="'You're soooo cool, work for me!!' - something like that"
 							onChange={(e) => handleChange(e, null)}
 						/>
 					</label>
