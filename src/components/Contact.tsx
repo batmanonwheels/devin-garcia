@@ -1,5 +1,13 @@
+import { useState } from 'react';
 import './styles/Contact.css';
 import { ImInstagram, ImLinkedin, ImTwitter, ImGithub } from 'react-icons/im';
+
+interface FormData {
+	name: string;
+	email: string;
+	body: string;
+	mailing_list: boolean;
+}
 
 export default function Contact() {
 	const traits: string[] = [
@@ -30,6 +38,46 @@ export default function Contact() {
 		'python',
 		'latex',
 	];
+
+	const defaultFormData: FormData = {
+		name: '',
+		email: '',
+		body: '',
+		mailing_list: false,
+	};
+	const [formData, setFormData] = useState(defaultFormData);
+
+	const handleChange = (
+		e:
+			| React.ChangeEvent<HTMLInputElement>
+			| React.ChangeEvent<HTMLTextAreaElement>,
+		checked: boolean | null
+	) => {
+		let clone;
+		if (checked !== null) {
+			clone = {
+				...formData,
+				mailing_list: checked,
+			};
+		} else {
+			clone = {
+				...formData,
+				[e.target.name as keyof FormData]: e.target.value,
+			};
+		}
+		setFormData(clone);
+	};
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (formData.email.includes('@') || !formData.email.includes('.com')) {
+			console.log(formData);
+			setFormData(defaultFormData);
+		} else {
+			alert('Invalid email, please try again');
+		}
+	};
+
 	return (
 		<div className='carousel-container' id='contact'>
 			<div className='skill-marquee top'>
@@ -48,26 +96,67 @@ export default function Contact() {
 					))}
 				</ul>
 			</div>
-			<div className='socials'>
-				{/* <h3>
-					Follow Me! <br></br>
-				</h3> */}
-				<div className='social-icons'>
+			<div className='content'>
+				<form className='contact-form' onSubmit={(e) => handleSubmit(e)}>
+					<label>
+						NAME
+						<input
+							type='text'
+							id='name'
+							name='name'
+							value={formData.name}
+							placeholder='My name is...'
+							onChange={(e) => handleChange(e, null)}
+						/>
+					</label>
+					<hr />
+					<label>
+						E-MAIL
+						<input
+							type='text'
+							id='email'
+							name='email'
+							value={formData.email}
+							placeholder='admin@example.com'
+							onChange={(e) => handleChange(e, null)}
+						/>
+					</label>
+					<hr />
+					<label>
+						MESSAGE
+						<textarea
+							id='body'
+							name='body'
+							value={formData.body}
+							placeholder='Let it all out..'
+							onChange={(e) => handleChange(e, null)}
+						/>
+					</label>
+					<hr />
+					<label>
+						{'Would you like to join my mailing list?'.toLowerCase()}
+						<input
+							id='checkbox'
+							type='checkbox'
+							onChange={(e) => handleChange(e, e.target.checked)}
+						></input>
+					</label>
+					<button type='submit' id='submit'>
+						SUBMIT
+					</button>
+				</form>
+				<div className='socials'>
 					<a href='https://github.com/batmanonwheels'>
 						<ImGithub />
-						<h3>Github</h3>
 					</a>
 					<a href='http://twitter.com/dvnjgrc'>
 						<ImTwitter />
-						<h3>Twitter</h3>
 					</a>
 					<a href='https://www.linkedin.com/in/devinjgarcia/'>
 						<ImLinkedin />
-						<h3>Linkedin</h3>
 					</a>
 					<a href='https://www.instagram.com/tellem2bringoutthewholeocean/'>
 						<ImInstagram />
-						<h3>Instagram</h3>
 					</a>
 				</div>
 			</div>
