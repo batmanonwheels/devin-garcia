@@ -4,6 +4,7 @@
 	grid-template-rows: 0.25fr 4fr 0.25fr;
 	grid-column-gap: 0.3rem;
 	grid-row-gap: 0.3rem;
+	overflow: hidden;
 }
 #home > div:not(.skill-marquee) {
 	/* background-color: var(--secondary-color);

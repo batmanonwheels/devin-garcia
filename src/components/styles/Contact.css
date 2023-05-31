@@ -154,8 +154,10 @@
 }
 
 input[type='checkbox'] {
-	height: 1rem;
+	height: 0.5rem;
 	box-shadow: none;
+	padding: 0.5rem;
+	transform: translateX(47%);
 }
 
 input[type='checkbox']:checked {
