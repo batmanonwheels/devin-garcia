@@ -118,7 +118,7 @@ export default function Contact() {
 							id='email'
 							name='email'
 							value={formData.email}
-							placeholder='admin@example.com'
+							placeholder='user@example.com'
 							onChange={(e) => handleChange(e, null)}
 						/>
 					</label>
@@ -129,7 +129,7 @@ export default function Contact() {
 							id='body'
 							name='body'
 							value={formData.body}
-							placeholder="'You're soooo cool, work for me!!' - something like that"
+							placeholder="'You're soooo cool, work for me!!' - or something like that"
 							onChange={(e) => handleChange(e, null)}
 						/>
 					</label>

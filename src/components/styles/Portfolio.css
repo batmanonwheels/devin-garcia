@@ -158,7 +158,7 @@
 
 .icons i {
 	font-size: 2rem;
-	color: var(--accent-color);
+	color: var(--primary-color);
 	flex-basis: 50%;
 }
 

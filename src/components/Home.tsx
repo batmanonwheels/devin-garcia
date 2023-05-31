@@ -47,28 +47,30 @@ export default function Home() {
 					))}
 				</ul>
 			</div>
-			<div className='body'>
-				<div className='greeting'>
-					<h2>
-						{"Hey, I'm Dev"
+			<div className='content'>
+				<h2 className='greeting'>
+					{/* {"Hey, I'm Dev"
 							.toUpperCase()
 							.split(' ')
 							.map((w) => (
 								<span key={w}>{`${w}`}</span>
-							))}
-					</h2>
-				</div>
-				<div className='about'>
-					<h3>
-						{'Fullstack Software Engineer'.split(' ').map((w) => (
+							))} */}
+					Hey, I'm Dev!
+				</h2>
+				<h3 className='about'>
+					{/* {'Fullstack Software Engineer'.split(' ').map((w) => (
 							<span key={w}>{`${w} `}</span>
-						))}
-					</h3>
+						))} */}
+					I'm a Fullstack Software Engineer
+				</h3>
+				<div className='links'>
+					<Link className='link' to={'works'}>
+						View My Work
+					</Link>
+					<Link className='link' to={'contact'}>
+						Contact Me
+					</Link>
 				</div>
-
-				<Link className='link' to={'works'}>
-					<h4>View My Portfolio</h4>
-				</Link>
 			</div>
 			<div className='skill-marquee bottom'>
 				<ul className='marquee-content'>

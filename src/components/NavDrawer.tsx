@@ -46,6 +46,7 @@ export default function NavDrawer({
 						checked={isDarkMode}
 						onChange={(e) => handleTheme(e)}
 						size={60}
+						color='var(--primary-color)'
 					/>
 				</li>
 			</ul>
