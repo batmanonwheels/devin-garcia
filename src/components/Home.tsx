@@ -55,13 +55,13 @@ export default function Home() {
 							.map((w) => (
 								<span key={w}>{`${w}`}</span>
 							))} */}
-					Hey, I'm Dev
+					Hey, I'm Dev!
 				</h2>
 				<h3 className='about'>
 					{/* {'Fullstack Software Engineer'.split(' ').map((w) => (
 							<span key={w}>{`${w} `}</span>
 						))} */}
-					Fullstack Software Engineer
+					I'm a Fullstack Software Engineer
 				</h3>
 				<div className='links'>
 					<Link className='link' to={'works'}>
