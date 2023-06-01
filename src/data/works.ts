@@ -61,7 +61,7 @@ const projects: Project[] = [
 			'materialui',
 		],
 		description:
-			"View your recent Spotify listening history and write reviews for your favorite songs. \n You're seeing sounds.",
+			'View your recent Spotify listening history and write reviews for your favorite songs.',
 	},
 	{
 		id: 4,
@@ -99,7 +99,7 @@ const projects: Project[] = [
 			'css3',
 		],
 		description:
-			'View their favorite waifus and husbandos and choose who they think belongs together!',
+			'Create pairings of your favorite waifus and husbandos for everyone to see and comment on!',
 	},
 	{
 		id: 2,
