@@ -1,5 +1,4 @@
 import './styles/Home.css';
-
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -21,13 +20,20 @@ export default function Home() {
 		'react',
 		'ruby',
 		'rails',
+		'python',
 		'postgresql',
 		'materialui',
 		'tailwindcss',
 		'html5',
 		'css3',
-		'python',
+		'nextjs',
+		'nodejs',
 		'latex',
+		'figma',
+		'git',
+		'godot',
+		'vscode',
+		'codepen',
 	];
 	return (
 		<div className='carousel-container' id='home'>
