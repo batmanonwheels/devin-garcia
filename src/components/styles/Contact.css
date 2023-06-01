@@ -247,7 +247,8 @@ input[type='checkbox'] {
 
 	.contact-form button {
 		text-align: center;
-		transform: translateX(150%);
+		width: 50%;
+		transform: translateX(100%);
 	}
 
 	.contact-form button:hover {
