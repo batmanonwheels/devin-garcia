@@ -71,11 +71,17 @@ export default function Contact() {
 	};
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		let emailInput = document.getElementById('email') as HTMLInputElement;
 		e.preventDefault();
 		if (formData.email.includes('@') && formData.email.includes('.com')) {
+			submitStatus === 'PLEASE TRY AGAIN'
+				? (emailInput.style.boxShadow =
+						'0.25rem 0.25rem 0 0 var(--secondary-color)')
+				: null;
 			setSubmitStatus('SUCCESS!');
 			setFormData(defaultFormData);
 		} else {
+			emailInput.style.boxShadow = '0.25rem 0.25rem 0 0 var(--error-color)';
 			setSubmitStatus('PLEASE TRY AGAIN');
 		}
 	};
@@ -130,13 +136,13 @@ export default function Contact() {
 							id='body'
 							name='message'
 							value={formData.message}
-							placeholder="'You're soooo cool, work for me!!' - or something like that"
+							placeholder="'You're so cool, please work for me!!' - or something like that"
 							onChange={(e) => handleChange(e, null)}
 						/>
 					</label>
 					<hr />
 					<label>
-						{'Would you like to join my mailing list?'.toLowerCase()}
+						{'would you like to join my mailing list?'}
 						<input
 							id='checkbox'
 							type='checkbox'

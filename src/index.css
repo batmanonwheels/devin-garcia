@@ -37,6 +37,7 @@
 	--secondary-color: #d2dbd1;
 	--accent-color: #998d9a;
 	--font-color: #998d9a;
+	--error-color: #db7093;
 	/* --icon-color:#444b45 */
 	/* --font-color: #444b45; */
 }
@@ -48,6 +49,7 @@
 	--secondary-color: #444b45;
 	--accent-color: #8e9a8d;
 	--font-color: #8e9a8d;
+	--error-color: #db7093;
 	/* --icon-color:#dbdfff */
 	/* --font-color: #dbdfff; */
 	/* --bg-color: #181d31;

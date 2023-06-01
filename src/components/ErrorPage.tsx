@@ -16,7 +16,7 @@ interface ErrorResponse {
 }
 
 export default function ErrorPage() {
-	const error: ErrorResponse = useRouteError() as ErrorResponse;
+	const error = useRouteError() as ErrorResponse;
 	let errorMessage: string = '';
 
 	if (error !== undefined) {
