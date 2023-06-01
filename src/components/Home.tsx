@@ -9,11 +9,11 @@ export default function Home() {
 		'Web Developer',
 		'Software Engineer',
 		'Tech-Lover',
+		'Multidisciplinary',
 		'Creative',
 		'Design-focused',
 		'Agile',
 		'Music & Video Game Lover',
-		'Multimedia Artist',
 	];
 	const skills: string[] = [
 		'typescript',

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './styles/Contact.css';
 import { ImInstagram, ImLinkedin, ImTwitter, ImGithub } from 'react-icons/im';
 
 interface FormData {
 	name: string;
 	email: string;
-	body: string;
+	message: string;
 	mailing_list: boolean;
 }
 
@@ -42,10 +42,11 @@ export default function Contact() {
 	const defaultFormData: FormData = {
 		name: '',
 		email: '',
-		body: '',
+		message: '',
 		mailing_list: false,
 	};
 	const [formData, setFormData] = useState(defaultFormData);
+	const [submitStatus, setSubmitStatus] = useState<string | null>(null);
 
 	const handleChange = (
 		e:
@@ -54,7 +55,7 @@ export default function Contact() {
 		checked: boolean | null
 	) => {
 		let clone;
-		//if checked is not null, assume that its the checkbox event
+		//if checked is not null, assume that its the checkbox element
 		if (checked !== null) {
 			clone = {
 				...formData,
@@ -71,11 +72,11 @@ export default function Contact() {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (formData.email.includes('@') || !formData.email.includes('.com')) {
-			console.log(formData);
+		if (formData.email.includes('@') && formData.email.includes('.com')) {
+			setSubmitStatus('SUCCESS!');
 			setFormData(defaultFormData);
 		} else {
-			alert('Invalid email, please try again');
+			setSubmitStatus('PLEASE TRY AGAIN');
 		}
 	};
 
@@ -127,8 +128,8 @@ export default function Contact() {
 						MESSAGE
 						<textarea
 							id='body'
-							name='body'
-							value={formData.body}
+							name='message'
+							value={formData.message}
 							placeholder="'You're soooo cool, work for me!!' - or something like that"
 							onChange={(e) => handleChange(e, null)}
 						/>
@@ -143,7 +144,7 @@ export default function Contact() {
 						></input>
 					</label>
 					<button type='submit' id='submit'>
-						SUBMIT
+						{submitStatus === null ? 'SUBMIT' : submitStatus}
 					</button>
 				</form>
 				<div className='socials'>
