@@ -34,11 +34,11 @@
 	max-width: min(98%, 1280px);
 	max-height: max-content;
 	margin: auto;
-	border-top: var(--border-heavy-thickness) solid var(--accent-color);
-	border-bottom: var(--border-heavy-thickness) solid var(--accent-color);
-	border-inline: var(--border-heavy-thickness) solid transparent;
+	/* border-top: var(--border-heavy-thickness) solid var(--accent-color); */
+	/* border-bottom: var(--border-heavy-thickness) solid var(--accent-color); */
+	/* border-inline: var(--border-heavy-thickness) solid transparent; */
 	overflow-y: scroll;
-	border-radius: calc(var(--border-radius) / 2);
+	border-radius: calc(var(--border-radius) / 3);
 	background-color: var(--bg-color);
 	background-image: radial-gradient(
 			circle,

@@ -63,12 +63,18 @@ export default function Home() {
 							))} */}
 					Hey, I'm Dev!
 				</h2>
-				<h3 className='about'>
+				<div className='about'>
 					{/* {'Fullstack Software Engineer'.split(' ').map((w) => (
 							<span key={w}>{`${w} `}</span>
 						))} */}
-					I'm a Fullstack Software Engineer
-				</h3>
+					<h3>Fullstack Software Engineer</h3>
+					<p>
+						My specialty is utilizing my non-traditional experience to create
+						<span> striking visual designs</span>, supported by a{' '}
+						<span>RESTful API</span> and
+						<span>fully functional backend</span>.
+					</p>
+				</div>
 				<div className='links'>
 					<Link className='link' to={'works'}>
 						View My Work
