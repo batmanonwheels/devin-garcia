@@ -26,7 +26,7 @@ export default function NavDrawer({
 		>
 			<ul className='nav-drawer-list'>
 				<li className='drawer-item'>
-					<a href='/home' className='drawer-link'>
+					<a href='/' className='drawer-link'>
 						home
 					</a>
 				</li>

@@ -50,10 +50,9 @@
 	min-width: 200%;
 	font-size: 1.8rem;
 	padding: 0;
+	animation: scroll 30s linear infinite;
 }
-.skill-marquee.top > .marquee-content {
-	animation: scroll 25s linear infinite;
-}
+
 .skill-marquee.bottom > .marquee-content {
 	animation: scroll 30s linear infinite;
 }
@@ -68,9 +67,11 @@
 	color: var(--accent-color);
 	transition: font-size 2s ease;
 }
+
 .marquee-content i:hover {
 	font-size: 2rem;
 }
+
 .marquee-content h3 {
 	color: var(--accent-color);
 	transition: font-variation-settings 2s ease;
@@ -91,9 +92,7 @@
 
 #contact > .content {
 	grid-area: 2 / 1 / 3 / 7;
-	display: grid;
-	grid-template-rows: 92% 8%;
-	grid-template-columns: 1;
+	display: block;
 	justify-content: center;
 }
 
@@ -101,21 +100,19 @@
 	grid-row-start: 1;
 	grid-row-end: 2;
 	color: var(--accent-color);
-	height: 100%;
+	height: 90%;
 	width: 100%;
-	text-align: center;
+	/* text-align: center; */
 	padding-top: 1rem;
 }
 
 .contact-form label {
-	text-align: center;
+	/* text-align: center; */
 	font-size: 1rem;
 }
 
 .contact-form input {
 	text-align: center;
-
-	font-size: 1.25rem;
 	background-color: var(--bg-color);
 	color: var(--font-color);
 	width: 100%;
@@ -127,6 +124,14 @@
 	outline-color: var(--primary-color);
 }
 
+#name {
+	font-size: 1.1rem;
+}
+
+#email {
+	font-size: 1.1rem;
+}
+
 .contact-form input:focus {
 	box-shadow: 0rem 0rem 0 0 var(--primary-color);
 	background-color: var(--secondary-color);
@@ -134,18 +139,18 @@
 
 .contact-form textarea {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	text-align: center;
 	width: 100%;
-	height: 3rem;
+	height: 5rem;
 	background-color: var(--bg-color);
 	color: var(--font-color);
 	outline-color: var(--primary-color);
 	border: 0.1rem solid var(--accent-color);
 	border-radius: calc(var(--border-radius) / 4);
 	box-shadow: 0.25rem 0.25rem 0 0 var(--secondary-color);
-	height: 5rem;
 	transition: background-color 400ms ease, box-shadow 500ms ease;
+	padding: 0.5rem;
 }
 
 .contact-form textarea:focus {
@@ -157,10 +162,10 @@ input[type='checkbox'] {
 	height: 0.5rem;
 	box-shadow: none;
 	padding: 0.5rem;
-	transform: translateX(47%);
-}
-
-input[type='checkbox']:checked {
+	margin-left: 1rem;
+	width: 20%;
+	/* height: 0.7rem; */
+	/* transform: translateX(-50%); */
 	accent-color: var(--primary-color);
 }
 
@@ -172,7 +177,7 @@ input[type='checkbox']:checked {
 .contact-form button {
 	font-weight: 650;
 	font-size: 1.25rem;
-	width: 40%;
+	width: 100%;
 	height: 2.5rem;
 	background-color: var(--bg-color);
 	color: var(--accent-color);
@@ -180,6 +185,7 @@ input[type='checkbox']:checked {
 	border-radius: calc(var(--border-radius) / 4);
 	margin-block: 0.5rem;
 	box-shadow: 0.25rem 0.25rem 0 0 var(--secondary-color);
+	/* transform: translateX(75%); */
 	transition: background-color 400ms ease, box-shadow 500ms ease;
 }
 
@@ -187,9 +193,8 @@ input[type='checkbox']:checked {
 	box-shadow: 0rem 0rem 0 0 var(--primary-color);
 	background-color: var(--secondary-color);
 }
+
 .socials {
-	grid-row-start: 2;
-	grid-row-end: 2;
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
@@ -197,7 +202,6 @@ input[type='checkbox']:checked {
 }
 
 .socials a {
-	display: flex;
 	gap: 0.65rem;
 	padding-inline: 0.5rem;
 }
@@ -214,14 +218,56 @@ input[type='checkbox']:checked {
 }
 
 @media screen and (min-width: 850px) {
-	.socials {
-		grid-area: 7 / 3 / 8/ 6;
-		padding: 0.2rem;
+	#contact > .content {
+		grid-area: 2 / 1 / 3 / 7;
+
+		display: block;
+		padding: 10rem;
+		padding-top: 8rem;
 	}
 
-	.social-icons h3 {
+	#name {
+		font-size: 1.2rem;
+	}
+
+	#email {
+		font-size: 1.2rem;
+	}
+
+	input[type='checkbox'] {
+		/* height: 0.5rem;
+		box-shadow: none;
+		padding: 0.5rem;
+		transform: translateX(47%); */
+		margin-left: 1rem;
+		width: 60%;
+		height: 0.7rem;
+		transform: translateX(-50%);
+	}
+
+	.contact-form button {
+		text-align: center;
+		transform: translateX(150%);
+	}
+
+	.contact-form button:hover {
+		box-shadow: 0rem 0rem 0 0 var(--primary-color);
+		background-color: var(--secondary-color);
+	}
+	.socials {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+		height: 100%;
+	}
+
+	.socials a {
+		gap: 0.65rem;
+		padding-inline: 0.5rem;
+	}
+
+	.socials svg {
 		color: var(--accent-color);
-		font-size: 0.55rem;
-		display: block;
+		font-size: 2.25rem;
 	}
 }
