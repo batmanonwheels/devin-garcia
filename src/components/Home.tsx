@@ -1,7 +1,12 @@
 import './styles/Home.css';
 import { Link } from 'react-router-dom';
+import img_me from '../images/me.webp';
 
-export default function Home() {
+interface HomeProps {
+	skills: string[];
+}
+
+export default function Home({ skills }: HomeProps) {
 	const traits: string[] = [
 		'NYC Based',
 		'Fullstack',
@@ -14,27 +19,7 @@ export default function Home() {
 		'Agile',
 		'Music & Video Game Lover',
 	];
-	const skills: string[] = [
-		'typescript',
-		'javascript',
-		'react',
-		'ruby',
-		'rails',
-		'python',
-		'postgresql',
-		'materialui',
-		'tailwindcss',
-		'html5',
-		'css3',
-		'nextjs',
-		'nodejs',
-		'latex',
-		'figma',
-		'git',
-		'godot',
-		'vscode',
-		'codepen',
-	];
+
 	return (
 		<div className='carousel-container' id='home'>
 			<div className='skill-marquee top'>
@@ -54,34 +39,23 @@ export default function Home() {
 				</ul>
 			</div>
 			<div className='content'>
-				<h2 className='greeting'>
-					{/* {"Hey, I'm Dev"
-							.toUpperCase()
-							.split(' ')
-							.map((w) => (
-								<span key={w}>{`${w}`}</span>
-							))} */}
-					Hey, I'm Dev!
-				</h2>
+				{/* <img className='image' src={img_me} alt='picture of dev' /> */}
 				<div className='about'>
-					{/* {'Fullstack Software Engineer'.split(' ').map((w) => (
-							<span key={w}>{`${w} `}</span>
-						))} */}
+					<h1>Hey, I'm Dev!</h1>
 					<h3>Fullstack Software Engineer</h3>
 					<p>
 						My specialty is utilizing my non-traditional experience to create
-						<span> striking visual designs</span>, supported by a{' '}
-						<span>RESTful API</span> and
-						<span>fully functional backend</span>.
+						elegant and striking visual designs, supported by a RESTful and
+						fully functional backend.
 					</p>
-				</div>
-				<div className='links'>
-					<Link className='link' to={'works'}>
-						View My Work
-					</Link>
-					<Link className='link' to={'contact'}>
-						Contact Me
-					</Link>
+					<div className='links'>
+						<Link className='link' to={'works'}>
+							View My Work
+						</Link>
+						<Link className='link' to={'contact'}>
+							Contact Me
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div className='skill-marquee bottom'>

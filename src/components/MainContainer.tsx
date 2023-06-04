@@ -17,10 +17,29 @@ interface MainContainerProps {
 export default function MainContainer({
 	setCarouselContainer,
 }: MainContainerProps) {
+	const skills: string[] = [
+		'typescript',
+		'javascript',
+		'react',
+		'nextjs',
+		'nodejs',
+		'ruby',
+		'rails',
+		'python',
+		'postgresql',
+		'materialui',
+		'tailwindcss',
+		'html5',
+		'css3',
+		'latex',
+		'figma',
+		'git',
+		'vscode',
+	];
 	const router = createBrowserRouter([
 		{
 			path: '/',
-			element: <Home />,
+			element: <Home skills={skills} />,
 			errorElement: <ErrorPage />,
 		},
 		{
@@ -31,7 +50,7 @@ export default function MainContainer({
 		},
 		{
 			path: '/contact',
-			element: <Contact />,
+			element: <Contact skills={skills} />,
 		},
 	]);
 
