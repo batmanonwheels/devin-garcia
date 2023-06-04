@@ -1,18 +1,18 @@
 #portfolio {
 	height: 95%;
-	width: 98%;
+	width: 100%;
 	max-width: min(98%, 1280px);
 	max-height: max-content;
 	margin: auto;
-	border-top: var(--border-heavy-thickness) solid var(--accent-color);
-	border-bottom: var(--border-heavy-thickness) solid var(--accent-color);
-	border-inline: var(--border-heavy-thickness) solid transparent;
+	/* border-top: var(--border-heavy-thickness) solid var(--accent-color); */
+	/* border-bottom: var(--border-heavy-thickness) solid var(--accent-color); */
+	/* border-inline: var(--border-heavy-thickness) solid transparent; */
 	overflow-y: scroll;
-	border-radius: var(--border-radius);
+	/* border-radius: calc(var(--border-radius) / 2); */
 }
 
 #portfolio::before {
-	height: 100%;
+	/* height: 100%; */
 	width: 100%;
 	z-index: 100;
 	background-image: url(#grainy);
@@ -50,7 +50,7 @@
 		linear-gradient(var(--secondary-color), 0.025rem, transparent 0.1rem),
 		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem);
 	background-size: 1rem 1rem;
-	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
+	background-position: 1rem 1rem, 2.5rem 2.5rem, 2.5rem 2.5rem;
 }
 
 .previous-containers > .container > a {
@@ -77,18 +77,26 @@
 	border: 0.05em solid black;
 	z-index: inherit;
 	overflow: clip;
+	position: relative;
 }
 
-.previous-containers > .container {
+.previous-containers > .container:not(.container:first-of-type) {
 	border-top: none;
 }
 
-.next-containers > .container {
+.next-containers > .container:not(.container:last-of-type) {
 	border-bottom: none;
 }
 
-.container:target {
-	background-color: aliceblue;
+.next-containers > .container:after {
+	content: '';
+	position: absolute;
+	margin: -4.5rem;
+	width: 11rem;
+	height: 8rem;
+	transform: rotate(45deg);
+	/* z-index: 1000; */
+	background-color: var(--secondary-color); /* to see where it is */
 }
 
 .heading {
@@ -112,6 +120,7 @@
 .containter:hover > .heading > h4:nth-child(1) {
 	font-variation-settings: 'wght' 1000, 'CONT' 500, 'MIDL' -100;
 }
+
 .content {
 	width: 100%;
 	height: 100%;
@@ -129,7 +138,8 @@
 	position: relative;
 	min-height: 50%;
 	width: 100%;
-} */
+}
+*/
 
 .image {
 	/* position: absolute; */
@@ -142,7 +152,7 @@
 	/* z-index: 1000; */
 	border-radius: calc(var(--border-radius) / 4);
 	transition: all 2s ease;
-	mix-blend-mode: difference;
+	/* mix-blend-mode: difference; */
 }
 
 .icons {
@@ -194,6 +204,10 @@
 }
 
 @media screen and (min-width: 850px) {
+	#portfolio {
+		height: 95%;
+	}
+
 	.heading > h4 {
 		font-size: 1.1rem;
 	}
@@ -207,7 +221,7 @@
 		object-fit: cover;
 		border-radius: calc(var(--border-radius) / 4);
 		transition: all 2s ease;
-		mix-blend-mode: difference;
+		/* mix-blend-mode: difference; */
 	}
 	/* .image:hover {
 		/* width: 90%;
@@ -224,7 +238,7 @@
 
 	.description {
 		font-weight: 300;
-		font-size: 1vw;
+		font-size: 1.15vw;
 		text-align: left;
 		transform: translateY(-1.25rem);
 		padding-inline: 1rem;

@@ -5,7 +5,9 @@
 	grid-column-gap: 0.3rem;
 	grid-row-gap: 0.3rem;
 	overflow: hidden;
+	height: 95.5%;
 }
+
 #home > div:not(.skill-marquee) {
 	/* background-color: var(--secondary-color);
 	border-radius: var(--border-radius);
@@ -35,7 +37,7 @@
 	margin-top: 0.1rem;
 }
 .skill-marquee.bottom {
-	--gap: 0.5rem;
+	--gap: 2rem;
 	grid-area: 3 / 1 / 3 / 7;
 	margin-bottom: 0.1rem;
 }
@@ -54,7 +56,7 @@
 	animation: scroll 25s linear infinite;
 }
 .skill-marquee.bottom > .marquee-content {
-	animation: scroll 30s linear infinite;
+	animation: scroll 20s linear infinite;
 }
 
 .marquee-content i {
@@ -91,17 +93,33 @@
 #home > .content {
 	grid-area: 2 / 1 / 3 / 7;
 	text-align: center;
-	transform: translateY(25%);
+	/* transform: translateY(10%); */
+	display: flex;
+	flex-direction: row;
 }
 
-.greeting {
-	font-weight: 650;
-	font-size: 2rem;
-	color: var(--accent-color);
+.image {
+	aspect-ratio: 1;
+	width: 50%;
 }
 
 .about {
 	color: var(--accent-color);
+}
+.about h1 {
+	font-weight: 650;
+	font-size: 2rem;
+	cursor: default;
+}
+
+/* .about h3 {
+} */
+
+.about p {
+	color: var(--accent-color);
+	font-size: 4vw;
+	line-height: 1.25rem;
+	padding: 1rem;
 }
 
 .links {
@@ -119,16 +137,45 @@
 	background-color: var(--bg-color);
 	color: var(--accent-color);
 	border: 0.1rem solid var(--accent-color);
-	border-radius: calc(var(--border-radius) / 4);
-	box-shadow: 0.25rem 0.25rem 0 0 var(--secondary-color);
+	/* border-radius: calc(var(--border-radius) / 4); */
+	box-shadow: 0.25rem 0.25rem 0 0 var(--primary-color);
 	transition: background-color 400ms ease, box-shadow 500ms ease;
 }
 
 .link:hover {
-	box-shadow: 0rem 0rem 0 0 var(--primary-color);
+	box-shadow: 0rem 0rem 0 0 transparent;
 	background-color: var(--secondary-color);
 	/* color: var(--accent-color); */
 }
 
 @media screen and (min-width: 850px) {
+	#home > .content {
+		grid-area: 2 / 1 / 3 / 7;
+		text-align: center;
+		transform: translateY(10%);
+		/* padding: 5rem; */
+		flex-direction: column;
+		/* justify-content: center; */
+		align-items: center;
+	}
+	.about {
+		max-width: 50%;
+		height: 50%;
+		text-align: center;
+	}
+	.about h2 {
+		font-weight: 650;
+		font-size: clamp(2rem);
+	}
+
+	.about h3 {
+		color: var(--accent-color);
+	}
+
+	.about p {
+		color: var(--accent-color);
+		font-size: 1rem;
+		line-height: 2rem;
+		padding: 5rem;
+	}
 }

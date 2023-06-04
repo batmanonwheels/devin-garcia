@@ -64,16 +64,21 @@ a,
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
-p,
 button,
-li,
 span {
 	font-family: 'Kyiv Sans';
 	color: var(--font-color);
 	font-variation-settings: 'CONT' 500, 'MIDL' -900;
+}
+
+h4,
+h5,
+h6,
+p,
+li {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	color: var(--font-color);
 }
 
 h1 {

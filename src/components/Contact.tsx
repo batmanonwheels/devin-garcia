@@ -2,6 +2,10 @@ import { useRef, useState } from 'react';
 import './styles/Contact.css';
 import { ImInstagram, ImLinkedin, ImTwitter, ImGithub } from 'react-icons/im';
 
+interface ContactProps {
+	skills: string[];
+}
+
 interface FormData {
 	name: string;
 	email: string;
@@ -9,7 +13,7 @@ interface FormData {
 	mailing_list: boolean;
 }
 
-export default function Contact() {
+export default function Contact({ skills }: ContactProps) {
 	const traits: string[] = [
 		'Contact Me!',
 		"Let's get in touch!",
@@ -23,20 +27,6 @@ export default function Contact() {
 		"Let's get in touch!",
 		"Let's chat!",
 		'Hit me up!',
-	];
-	const skills: string[] = [
-		'typescript',
-		'javascript',
-		'react',
-		'ruby',
-		'rails',
-		'postgresql',
-		'materialui',
-		'tailwindcss',
-		'html5',
-		'css3',
-		'python',
-		'latex',
 	];
 
 	const defaultFormData: FormData = {
