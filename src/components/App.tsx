@@ -82,7 +82,6 @@ export default function App() {
 				setOpenNavDrawer={setOpenNavDrawer}
 			/>
 			<div id='main'>
-				{/* <Texture /> */}
 				<Nav
 					isDarkMode={isDarkMode}
 					setIsDarkMode={setIsDarkMode}
