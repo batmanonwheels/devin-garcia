@@ -2,6 +2,7 @@ import img_noteability from '../images/noteability.webp';
 import img_synesthesia from '../images/synesthesia.webp';
 import img_nationalparkpal from '../images/nationalparkpal.webp';
 import img_gamesquad from '../images/gamesquad.webp';
+import img_fthatsamap from '../images/fthatsamap.webp';
 
 export interface Project {
 	id: number;
@@ -18,7 +19,7 @@ const projects: Project[] = [
 	{
 		id: 7,
 		name: "F*ck That's A Map",
-		images: [img_noteability],
+		images: [img_fthatsamap],
 		date_created: 'APR.2.2023',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/f-thats-delicious',
