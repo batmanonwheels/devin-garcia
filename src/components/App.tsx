@@ -46,7 +46,7 @@ export default function App() {
 	useEffect(() => {
 		if (!!carouselContainer && hasScrolled === false) {
 			carouselContainer!.scrollTo({
-				top: 5000,
+				top: 10000,
 				left: 0,
 				behavior: 'smooth',
 			});

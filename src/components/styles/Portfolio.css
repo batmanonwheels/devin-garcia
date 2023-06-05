@@ -91,12 +91,21 @@
 .next-containers > .container:after {
 	content: '';
 	position: absolute;
-	margin: -4.5rem;
-	width: 11rem;
-	height: 8rem;
+	margin: -5rem;
+	width: 20em;
+	height: 10rem;
 	transform: rotate(45deg);
-	/* z-index: 1000; */
-	background-color: var(--secondary-color); /* to see where it is */
+	z-index: -1000;
+	background-color: var(--secondary-color);
+
+	/* background-image: linear-gradient(
+			var(--secondary-color),
+			0.025rem,
+			transparent 0.1rem
+		),
+		linear-gradient(90deg, var(--secondary-color) 0.025rem, transparent 0.1rem);
+	background-size: 2rem 3rem;
+	background-position: 1.055rem 1.055rem, 2.5rem 2.5rem, 2.5rem 2.5rem; */
 }
 
 .heading {
@@ -209,7 +218,7 @@
 	}
 
 	.heading > h4 {
-		font-size: 1.1rem;
+		font-size: 0.9rem;
 	}
 
 	.image {
@@ -233,12 +242,12 @@
 	}
 
 	.icons i {
-		font-size: 1.7rem;
+		font-size: 1.3rem;
 	}
 
 	.description {
 		font-weight: 300;
-		font-size: 1.15vw;
+		font-size: 1rem;
 		text-align: left;
 		transform: translateY(-1.25rem);
 		padding-inline: 1rem;
@@ -265,7 +274,7 @@
 	}
 
 	.footer-link > h3 {
-		font-size: 1.25rem;
+		font-size: 0.95rem;
 		margin: 0;
 		margin-bottom: 0.5rem;
 		font-weight: 400;
