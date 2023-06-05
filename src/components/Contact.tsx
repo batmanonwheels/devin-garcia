@@ -75,6 +75,7 @@ export default function Contact({ skills }: ContactProps) {
 			setSubmitStatus('SUCCESS!');
 			setFormData(defaultFormData);
 			emailInput.style.boxShadow = '0.25rem 0.25rem 0 0 var(--secondary-color)';
+			localStorage.setItem('name', formData.name);
 		} else {
 			setSubmitStatus('INVALID EMAIL');
 			emailInput.style.boxShadow = '0.25rem 0.25rem 0 0 var(--error-color)';

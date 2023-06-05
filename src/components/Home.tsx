@@ -20,6 +20,8 @@ export default function Home({ skills }: HomeProps) {
 		'Music & Video Game Lover',
 	];
 
+	const name: string | null = localStorage.getItem('name');
+
 	return (
 		<div className='carousel-container' id='home'>
 			<div className='skill-marquee top'>
@@ -41,7 +43,12 @@ export default function Home({ skills }: HomeProps) {
 			<div className='content'>
 				{/* <img className='image' src={img_me} alt='picture of dev' /> */}
 				<div className='about'>
-					<h1>Hey, I'm Dev!</h1>
+					{name === null ? (
+						<h1>Hey, I'm Dev!</h1>
+					) : (
+						<h1>{`Hey ${name}, I'm Dev!`}</h1>
+					)}
+
 					<h3> I'm a Fullstack Software Engineer</h3>
 					<p>
 						My specialty is utilizing my non-traditional experience to create
