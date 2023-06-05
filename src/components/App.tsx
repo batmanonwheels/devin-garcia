@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Carousel from './MainContainer';
 import Nav from './Nav';
 import NavDrawer from './NavDrawer';
-import Texture from './Texture';
 
 export default function App() {
 	const [openNavDrawer, setOpenNavDrawer] = useState<boolean>(false);
