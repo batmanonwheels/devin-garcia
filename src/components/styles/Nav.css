@@ -77,8 +77,7 @@
 	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
 }
 
-.nav-item-text,
-.title {
+.nav-item-text {
 	font-weight: 1000;
 	font-variation-settings: 'CONT' 1000, 'MIDL' -1000;
 	transition: font-weight 500ms, font-variation-settings 500ms;
@@ -265,16 +264,12 @@ a {
 	.nav-drawer {
 		display: none;
 	}
-	.theme-toggle svg {
-		padding-right: 0.25rem;
-		position: absolute;
-		top: 0.25%;
-		right: 0.25%;
-	}
 
 	.navbar.theme-toggle {
 		color: var(--primary-color);
 		fill: var(--primary-color);
+		margin-top: 0.25rem;
+		margin-left: 3rem;
 	}
 	.navbar.theme-toggle circle {
 		color: var(--secondary-color);

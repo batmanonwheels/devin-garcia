@@ -147,11 +147,11 @@ export default function Contact({ skills }: ContactProps) {
 					<a href='https://github.com/batmanonwheels'>
 						<ImGithub />
 					</a>
-					<a href='http://twitter.com/dvnjgrc'>
-						<ImTwitter />
-					</a>
 					<a href='https://www.linkedin.com/in/devinjgarcia/'>
 						<ImLinkedin />
+					</a>
+					<a href='http://twitter.com/dvnjgrc'>
+						<ImTwitter />
 					</a>
 					<a href='https://www.instagram.com/tellem2bringoutthewholeocean/'>
 						<ImInstagram />

@@ -30,7 +30,7 @@ export default function NavBar({
 				className='navbar theme-toggle'
 				checked={isDarkMode}
 				onChange={(e) => handleTheme(e)}
-				size={30}
+				size={40}
 			/>
 		</>
 	);

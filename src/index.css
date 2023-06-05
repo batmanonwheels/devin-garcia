@@ -16,6 +16,7 @@
 	font-family: 'Kyiv Sans, Kyiv Tilt';
 	line-height: 1.5;
 	font-weight: 400;
+
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -94,11 +95,11 @@ h1 {
 	transition: font-weight 500ms, font-variation-settings 500ms;
 }
 
-a,
+/* a,
 h1:hover {
 	font-weight: 50;
 	font-variation-settings: 'CONT' 500, 'MIDL' -1000;
-}
+} */
 
 html,
 body {
@@ -108,6 +109,7 @@ body {
 
 html {
 	scroll-behavior: smooth;
+	font-size: calc(14px + 0.390625vw);
 }
 
 body {
