@@ -1,0 +1,8 @@
+{
+	"rewrites": [
+		{ "source": "/", "destination": "/", "status": 200 },
+		{ "source": "/works", "destination": "/works", "status": 200 },
+		{ "source": "/contact", "destination": "/contact", "status": 200 },
+		{ "source": "/(.*)", "destination": "/(.*)", "status": 404 }
+	]
+}
