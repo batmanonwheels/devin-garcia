@@ -42,7 +42,7 @@ export default function Home({ skills }: HomeProps) {
 				{/* <img className='image' src={img_me} alt='picture of dev' /> */}
 				<div className='about'>
 					<h1>Hey, I'm Dev!</h1>
-					<h3>Fullstack Software Engineer</h3>
+					<h3> I'm a Fullstack Software Engineer</h3>
 					<p>
 						My specialty is utilizing my non-traditional experience to create
 						elegant and striking visual designs, supported by a RESTful and

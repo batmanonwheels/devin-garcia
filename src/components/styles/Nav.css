@@ -51,6 +51,7 @@
 	top: 0%;
 	right: 0.25%;
 	color: var(--accent-color);
+	transform: translateY(-0.1rem);
 }
 
 .burger-button .hamburger {
@@ -58,7 +59,8 @@
 }
 
 .burger-button[aria-expanded='true'] .hamburger {
-	translate: 0px -5px;
+	/* translate: 0px -5px; */
+	transform: translateY(-0.1rem);
 	rotate: 0.125turn;
 }
 

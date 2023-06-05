@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import './styles/Contact.css';
 import { ImInstagram, ImLinkedin, ImTwitter, ImGithub } from 'react-icons/im';
 
@@ -12,6 +13,11 @@ interface FormData {
 	message: string;
 	mailing_list: boolean;
 }
+
+const supabase: SupabaseClient = createClient(
+	'https://qfwmrzebhjznjjsdsvfh.supabase.co',
+	import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 export default function Contact({ skills }: ContactProps) {
 	const traits: string[] = [
@@ -60,19 +66,18 @@ export default function Contact({ skills }: ContactProps) {
 		setFormData(clone);
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		let emailInput = document.getElementById('email') as HTMLInputElement;
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (formData.email.includes('@') && formData.email.includes('.com')) {
-			submitStatus === 'PLEASE TRY AGAIN'
-				? (emailInput.style.boxShadow =
-						'0.25rem 0.25rem 0 0 var(--secondary-color)')
-				: null;
+		const { error } = await supabase.from('Messages').insert(formData);
+
+		let emailInput = document.getElementById('email') as HTMLInputElement;
+		if (error === null) {
 			setSubmitStatus('SUCCESS!');
 			setFormData(defaultFormData);
+			emailInput.style.boxShadow = '0.25rem 0.25rem 0 0 var(--secondary-color)';
 		} else {
+			setSubmitStatus('INVALID EMAIL');
 			emailInput.style.boxShadow = '0.25rem 0.25rem 0 0 var(--error-color)';
-			setSubmitStatus('PLEASE TRY AGAIN');
 		}
 	};
 
