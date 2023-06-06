@@ -83,7 +83,7 @@ const projects: Project[] = [
 			'materialui',
 		],
 		description:
-			'Noteability is a game that allows you to play a song on a virtual piano and have your friends guess the name of it!',
+			'Create an account and write/read reviews for your favorite video games!',
 	},
 	{
 		id: 3,
