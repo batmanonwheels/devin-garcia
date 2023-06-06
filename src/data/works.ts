@@ -3,6 +3,8 @@ import img_synesthesia from '../images/synesthesia.webp';
 import img_nationalparkpal from '../images/nationalparkpal.webp';
 import img_gamesquad from '../images/gamesquad.webp';
 import img_fthatsamap from '../images/fthatsamap.webp';
+import img_theship from '../images/theship.webp';
+import img_kittycollective from '../images/kittycollective.webp';
 
 export interface Project {
 	id: number;
@@ -86,7 +88,7 @@ const projects: Project[] = [
 	{
 		id: 3,
 		name: 'The Ship',
-		images: [img_noteability],
+		images: [img_theship],
 		date_created: 'JUL.11.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/bro-san/the-SHIP-frontend',
@@ -105,7 +107,7 @@ const projects: Project[] = [
 	{
 		id: 2,
 		name: 'Kitty Collective',
-		images: [img_noteability],
+		images: [img_kittycollective],
 		date_created: 'JUN.20.2022',
 		deployed_link: '',
 		github_link: 'https://github.com/batmanonwheels/noteability',
