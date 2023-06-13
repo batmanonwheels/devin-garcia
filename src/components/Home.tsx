@@ -1,5 +1,6 @@
 import './styles/Home.css';
 import { Link } from 'react-router-dom';
+import resume from '../files/DG_SWE_Resume.pdf';
 import img_me from '../images/me.webp';
 
 interface HomeProps {
@@ -41,7 +42,6 @@ export default function Home({ skills }: HomeProps) {
 				</ul>
 			</div>
 			<div className='content'>
-				{/* <img className='image' src={img_me} alt='picture of dev' /> */}
 				<div className='about'>
 					{name === null ? (
 						<h1>Hey, I'm Dev!</h1>
@@ -62,6 +62,9 @@ export default function Home({ skills }: HomeProps) {
 						<Link className='link' to={'contact'}>
 							Contact Me
 						</Link>
+						<a className='link' href={resume} download={'devingarciaresume'}>
+							View My Resume
+						</a>
 					</div>
 				</div>
 			</div>
