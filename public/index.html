@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+  <link rel="stylesheet" href="/static/index.css" />
+</head>
+
+<body>
+  <header>devingarcia</header>
+  <main>
+    <div id="project-list" hx-get="/projects/1" hx-trigger="load" hx-target="innerHTML"></div>
+  </main>
+</body>
+
+</html>
