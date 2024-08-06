@@ -1,0 +1,13 @@
+<title>PROJECTS - DEVIN GARCIA</title>
+
+{{range .projects}}
+<div class="p-6 border">
+  <a href="/projects/{{.ID}}">
+    {{range .Images}}
+    <img src={{.}} class="object-cover w-full h-1/5 drop-shadow-md" />
+    {{end}}
+    <h1 class="text-2xl ">{{ .Name }}</h1>
+    <div class="text-lg">{{ .Description }}</div>
+  </a>
+</div>
+{{end}}

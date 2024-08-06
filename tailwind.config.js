@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
-	content: ['./templates/*.html'], // This is where your HTML templates / JSX files are located
-	theme: {},
+	content: ['./templates/*.html'],
+	theme: {
+		extend: {},
+	},
 	plugins: [],
 };

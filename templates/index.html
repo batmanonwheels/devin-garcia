@@ -1,6 +1,15 @@
-{{template "top"}}
-<ul class="p-2">
-  <li class="underline underline-offset-2 my-2"><a href="/view/"></a></li>
-</ul>
-<!-- <p><a href="/create/" class="underline underline-offset-2 my-2">Create New Post</a></p> -->
-{{template "bottom"}}
+<!DOCTYPE html>
+<html lang="en">
+
+{{template "head" .}}
+
+<body class="min-h-[100svh] min-w-[100svw]">
+  {{template "header" .}}
+  <main class="">
+    <h1 class="p-3 text-2xl font-bold">PROJECTS</h1>
+    <div class="flex flex-col gap-2 p-3" hx-get="/api/projects" hx-trigger="load" hx-swap="innerHTML transition:true ">
+    </div>
+  </main>
+</body>
+
+</html>
