@@ -3,11 +3,13 @@
 
 {{template "head" .}}
 
-<body class="min-h-[100svh] min-w-[100svw]">
+<body class="">
   {{template "header" .}}
-  <main class="">
-    <h1 class="p-3 text-2xl font-bold">PROJECTS</h1>
-    <div class="flex flex-col gap-2 p-3" hx-get="/api/projects" hx-trigger="load" hx-swap="innerHTML transition:true ">
+
+  <main class="max-w-screen-xl px-3 mx-auto">
+    {{template "subheader" "PROJECTS"}}
+    <div class="flex flex-wrap gap-2 pt-2 md:mx-auto md:gap-0 md:justify-evenly" hx-get="/api/projects"
+      hx-trigger="load" hx-swap="innerHTML transition:true ">
     </div>
   </main>
 </body>
