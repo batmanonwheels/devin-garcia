@@ -57,19 +57,6 @@ func getProjects(c *gin.Context) {
 	c.HTML(http.StatusOK, "projects.html", gin.H{"projects": projects})
 }
 
-func getProject(c *gin.Context) {
-	id := c.Param("id")
-
-	for _, p := range projects {
-		if p.ID == id {
-			c.HTML(http.StatusOK, "project.html", p)
-			return
-		}
-	}
-
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Project does not exist"})
-}
-
 func createProject(c *gin.Context) {
 	var newProject Project
 
@@ -83,39 +70,6 @@ func createProject(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newProject)
 }
 
-// func updateProject(c *gin.Context) {
-// 	id := c.Param("id")
-
-// 	var updatedProject Project
-
-// 	for _, p := range projects {
-// 		if p.ID == id {
-// 			return
-// 		}
-// 	}
-
-// 	if err := c.BindJSON(&updatedProject); err != nil {
-// 		return
-// 	}
-
-// 	projects = append(projects, updatedProject)
-// 	c.IndentedJSON(http.StatusAccepted, updatedProject)
-// }
-
-// func deleteProject(c *gin.Context) {
-// 	id := c.Param("id")
-
-// 	var deletedProject Project
-
-// 	for _, p := range projects {
-// 		if p.ID == id {
-// 			return
-// 		}
-// 	}
-
-// 	c.IndentedJSON(http.StatusAccepted, deletedProject)
-// }
-
 //go:embed static/css
 var css embed.FS
 
@@ -127,7 +81,7 @@ func main() {
 	router.GET("/static/css/styles.css", gin.WrapH(http.FileServer(http.FS(css))))
 	router.GET("/static/fonts/Neue-Regrade-Variable.ttf", gin.WrapH(http.FileServer(http.FS(font))))
 
-	router.LoadHTMLFiles("templates/index.html", "templates/project.html", "templates/components/about.html", "templates/components/projects.html", "templates/components/head.html", "templates/components/header.html", "templates/components/subheader.html")
+	router.LoadHTMLFiles("templates/index.html", "templates/components/projects.html", "templates/components/about.html", "templates/components/head.html", "templates/components/header.html", "templates/components/subheader.html")
 
 	router.SetTrustedProxies(nil)
 
@@ -140,14 +94,9 @@ func main() {
 		c.HTML(http.StatusOK, "about.html", gin.H{})
 	})
 
-	router.GET("/projects/:id", getProject)
-
 	//project API routes
 	router.GET("/api/projects", getProjects)
-	router.GET("/api/projects/:id", getProject)
 	router.POST("/api/projects", createProject)
-	// router.PATCH("/api/projects/:id", updateProject)
-	// router.DELETE("/api/projects/:id", deleteProject)
 
 	router.Run("localhost:8080")
 	fmt.Println("Server started on port :8080")
