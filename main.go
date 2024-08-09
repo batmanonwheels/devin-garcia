@@ -1,9 +1,9 @@
 package main
 
 import (
-	"embed"
-	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"slices"
 
 	"github.com/gin-gonic/gin"
@@ -70,18 +70,14 @@ func createProject(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newProject)
 }
 
-//go:embed static/css
-var css embed.FS
-
-//go:embed static/fonts
-var font embed.FS
-
 func main() {
+	gin.SetMode(gin.ReleaseMode)
+
 	router := gin.Default()
-	router.GET("/static/css/styles.css", gin.WrapH(http.FileServer(http.FS(css))))
-	router.GET("/static/fonts/Neue-Regrade-Variable.ttf", gin.WrapH(http.FileServer(http.FS(font))))
 
 	router.LoadHTMLFiles("templates/index.html", "templates/components/projects.html", "templates/components/about.html", "templates/components/head.html", "templates/components/header.html", "templates/components/subheader.html")
+
+	router.StaticFS("static", http.Dir("./static"))
 
 	router.SetTrustedProxies(nil)
 
@@ -98,12 +94,13 @@ func main() {
 	router.GET("/api/projects", getProjects)
 	router.POST("/api/projects", createProject)
 
-	router.Run("localhost:8080")
-	fmt.Println("Server started on port :8080")
-}
+	port := os.Getenv("PORT")
 
-// curl http://localhost:8080/projects \
-//     --include \
-//     --header "Content-Type: application/json" \
-//     --request "POST" \
-//     --data '{"id": "9", "name": "New Fun Things", "images": [""], "date_created" : "", "deployed_link" : "", "github_link": "https://github.com/batmanonwheels/uheard", "made_with": ["Typescript", "React", "tailwindcss",  "vite"], "description": "Recommend your favorite tracks and albums to your friends!"},'
+	if port == "" {
+		port = "8080"
+	}
+
+	if err := router.Run(":" + port); err != nil {
+		log.Panicf("error: %s", err)
+	}
+}
