@@ -1,4 +1,4 @@
-module example/devin-garcia
+module github.com/batmanonwheels/devin-garcia
 
 go 1.22.0
 
