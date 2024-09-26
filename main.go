@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"slices"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,20 +26,26 @@ var projects = []Project{
 
 	{ID: "2", Name: "KITTY COLLECTIVE", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/kr97kl3mnhouoyxnnmmc.webp", DateCreated: "JUN.20.2022", DeployedLink: "", GithubLink: "", MadeWith: []string{"Javascript", "React", "CSS"}, Description: "Browse a vast array of cats, select your favorites, and even add your own to the collection!"},
 
-	{ID: "3", Name: "THE SHIP", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/gkjtl7kdmn9xbn9mluu6.webp", DateCreated: "JUL.11.2022", DeployedLink: "", GithubLink: "https://github.com/bro-san/the-SHIP-frontend", MadeWith: []string{"Javascript",
+	{ID: "3", Name: "THE SHIP", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/gkjtl7kdmn9xbn9mluu6.webp", DateCreated: "JUL.11.2022", DeployedLink: "", GithubLink: "https://github.com/bro-san/the-SHIP-frontend", MadeWith: []string{
+		"Javascript",
 		"React",
 		"Rails",
-		"CSS"}, Description: "Create pairings of your favorite waifus and husbandos for everyone to see and comment on!"},
+		"CSS",
+	}, Description: "Create pairings of your favorite waifus and husbandos for everyone to see and comment on!"},
 
-	{ID: "4", Name: "GAMESQUAD", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/ia775b2opgtekm4upkqe.webp", DateCreated: "", DeployedLink: "", GithubLink: "https://github.com/batmanonwheels/game_squad_frontend", MadeWith: []string{"Javascript",
+	{ID: "4", Name: "GAMESQUAD", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/ia775b2opgtekm4upkqe.webp", DateCreated: "", DeployedLink: "", GithubLink: "https://github.com/batmanonwheels/game_squad_frontend", MadeWith: []string{
+		"Javascript",
 		"React",
 		"Rails",
-		"MaterialUI"}, Description: "Create an account and write/read reviews for your favorite video games!"},
+		"MaterialUI",
+	}, Description: "Create an account and write/read reviews for your favorite video games!"},
 
-	{ID: "5", Name: "SYNESTHESIA", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/rrkxnbzjovfdoucohryi.webp", DateCreated: "AUG.9.2022", DeployedLink: "https://github.com/batmanonwheels/synesthesia", GithubLink: "", MadeWith: []string{"Javascript",
+	{ID: "5", Name: "SYNESTHESIA", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/rrkxnbzjovfdoucohryi.webp", DateCreated: "AUG.9.2022", DeployedLink: "https://github.com/batmanonwheels/synesthesia", GithubLink: "", MadeWith: []string{
+		"Javascript",
 		"React",
 		"Rails",
-		"ChakraUI"}, Description: "View your recent Spotify listening history and write reviews for your favorite songs."},
+		"ChakraUI",
+	}, Description: "View your recent Spotify listening history and write reviews for your favorite songs."},
 
 	{ID: "6", Name: "INTERPOLL", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1722888561/interpoll.webp", DateCreated: "", DeployedLink: "https://interpoll.vercel.app", GithubLink: "https://github.com/batmanonwheels/interpoll", MadeWith: []string{"Typescript", "Next.js", "TailwindCSS"}, Description: "Answer daily questions and view statistics for all polls."},
 
@@ -70,6 +77,12 @@ func createProject(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newProject)
 }
 
+func spinDeployment() {
+	url := "https://devingarcia.net"
+
+	http.Get(url)
+}
+
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 
@@ -81,7 +94,7 @@ func main() {
 
 	router.SetTrustedProxies(nil)
 
-	//site routes
+	// site routes
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{})
 	})
@@ -90,7 +103,7 @@ func main() {
 		c.HTML(http.StatusOK, "about.html", gin.H{})
 	})
 
-	//project API routes
+	// project API routes
 	router.GET("/api/projects", getProjects)
 	router.POST("/api/projects", createProject)
 
@@ -103,4 +116,11 @@ func main() {
 	if err := router.Run(":" + port); err != nil {
 		log.Panicf("error: %s", err)
 	}
+
+	go func() {
+		for {
+			spinDeployment()
+			<-time.After(600 * time.Second)
+		}
+	}()
 }
