@@ -54,6 +54,7 @@ var projects = []Project{
 	{ID: "8", Name: "UHEARD", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1700528168/Screenshot_2023-11-20_at_7.54.06_PM_olcdnb.webp", DateCreated: "", DeployedLink: "https://uheard.vercel.app", GithubLink: "https://github.com/batmanonwheels/uheard", MadeWith: []string{"Typescript", "Next.js", "TailwindCSS"}, Description: "Recommend your favorite tracks and albums to your friends!"},
 
 	{ID: "9", Name: "NEW FUN THINGS", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1722613985/newfunthings_osqy6h.webp", DateCreated: "", DeployedLink: "", GithubLink: "https://github.com/batmanonwheels/new-fun-things", MadeWith: []string{"Typescript", "React", "TailwindCSS"}, Description: "View and purchase various 3d models, totally legit and legal!"},
+	{ID: "10", Name: "ARTISAN BRYAN", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1727607895/IMG_3762_jtb53f.webp", DateCreated: "", DeployedLink: "https://artisanbryan.com", GithubLink: "", MadeWith: []string{"WordPress", "Elementor"}, Description: ""},
 }
 
 func getProjects(c *gin.Context) {
