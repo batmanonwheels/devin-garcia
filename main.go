@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -79,13 +80,17 @@ func createProject(c *gin.Context) {
 }
 
 func spinDeployment() {
-	url := "https://devingarcia.net"
+	url := "https://devingarcia.net/"
 
-	http.Get(url)
+	res, err := http.Get(url)
+
+	if err == nil {
+		fmt.Println(res.Status)
+	}
 }
 
 func main() {
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 
 	router := gin.Default()
 
@@ -108,6 +113,13 @@ func main() {
 	router.GET("/api/projects", getProjects)
 	router.POST("/api/projects", createProject)
 
+	go func() {
+		for {
+			spinDeployment()
+			time.Sleep(600 * time.Second)
+		}
+	}()
+
 	port := os.Getenv("PORT")
 
 	if port == "" {
@@ -117,11 +129,4 @@ func main() {
 	if err := router.Run(":" + port); err != nil {
 		log.Panicf("error: %s", err)
 	}
-
-	go func() {
-		for {
-			spinDeployment()
-			<-time.After(600 * time.Second)
-		}
-	}()
 }
