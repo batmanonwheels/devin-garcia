@@ -3,18 +3,18 @@
 
 {{template "head" .}}
 
-<body class="bg-white  w-svh font-neue">
+<body class="bg-white w-svw font-neue">
   {{template "header" .}}
-  <main class="flex flex-col px-3 mx-auto md:flex-row">
+  <main class="flex flex-col px-3 mx-auto lg:flex-row">
 
-    <section class="md:w-3/12">
+    <section class="lg:w-3/12">
       {{template "subheader" "about/"}}
       <div
-        class="h-[calc(80svh)] md:h-[calc(95svh)] md:sticky md:top-10 flex flex-col gap-4 p-4 font-neue py-auto align-bottom justify-center "
+        class="h-[calc(80svh)] lg:h-[calc(95svh)] lg:sticky lg:top-10 flex flex-col gap-4 p-4 font-neue py-auto align-bottom justify-center "
         hx-get="/api/about" hx-trigger="load" hx-swap="innerHTML"></div>
     </section>
 
-    <section class="md:mb-5 md:w-9/12">
+    <section class="lg:mb-5 lg:w-9/12">
       {{template "subheader" "projects/"}}
       <div class="flex flex-col gap-2 pb-6 " hx-get="/api/projects" hx-trigger="load"
         hx-swap="innerHTML transition:true ">
