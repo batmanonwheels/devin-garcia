@@ -30,7 +30,7 @@ type Project struct {
 var projects []Project
 
 func getProjects(c *gin.Context) {
-	url := "https://db.devingarcia.net"
+	url := os.Getenv("PORT")
 
 	res, err := http.Get(url)
 
