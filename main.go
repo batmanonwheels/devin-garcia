@@ -1,69 +1,57 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
-	"slices"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
+type PocketBaseRes struct {
+	Items []Project `json:"items"`
+}
+
 type Project struct {
-	ID           string   `json:"id"`
-	Name         string   `json:"name"`
-	Image        string   `json:"image"`
-	DateCreated  string   `json:"date_created"`
-	DeployedLink string   `json:"deployed_link"`
-	MadeWith     []string `json:"made_with"`
-	GithubLink   string   `json:"github_link"`
-	Description  string   `json:"description"`
+	ID           string   `json:"Id"`
+	Name         string   `json:"Name"`
+	Image        string   `json:"Image"`
+	DeployedLink string   `json:"DeployedLink"`
+	MadeWith     []string `json:"MadeWith"`
+	GithubLink   string   `json:"GithubLink"`
+	Description  string   `json:"Description"`
+	Order        int      `json:"Order"`
 }
 
-var projects = []Project{
-	{ID: "1", Name: "NATIONAL PARK PAL", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/yjahkfrbs60xfrbminnk.webp", DateCreated: "MAY.31.2022", DeployedLink: "https://hkassow.github.io/phase-1-parks-project/", GithubLink: "https://github.com/hkassow/phase-1-parks-project", MadeWith: []string{"Javascript", "HTML", "CSS"}, Description: "Your personal guide to most of the US National Parks & Landmarks!"},
-
-	{ID: "2", Name: "KITTY COLLECTIVE", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/kr97kl3mnhouoyxnnmmc.webp", DateCreated: "JUN.20.2022", DeployedLink: "", GithubLink: "", MadeWith: []string{"Javascript", "React", "CSS"}, Description: "Browse a vast array of cats, select your favorites, and even add your own to the collection!"},
-
-	{ID: "3", Name: "THE SHIP", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/gkjtl7kdmn9xbn9mluu6.webp", DateCreated: "JUL.11.2022", DeployedLink: "", GithubLink: "https://github.com/bro-san/the-SHIP-frontend", MadeWith: []string{
-		"Javascript",
-		"React",
-		"Rails",
-		"CSS",
-	}, Description: "Create pairings of your favorite waifus and husbandos for everyone to see and comment on!"},
-
-	{ID: "4", Name: "GAMESQUAD", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895130/ia775b2opgtekm4upkqe.webp", DateCreated: "", DeployedLink: "", GithubLink: "https://github.com/batmanonwheels/game_squad_frontend", MadeWith: []string{
-		"Javascript",
-		"React",
-		"Rails",
-		"MaterialUI",
-	}, Description: "Create an account and write/read reviews for your favorite video games!"},
-
-	{ID: "5", Name: "SYNESTHESIA", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1692895131/rrkxnbzjovfdoucohryi.webp", DateCreated: "AUG.9.2022", DeployedLink: "https://github.com/batmanonwheels/synesthesia", GithubLink: "", MadeWith: []string{
-		"Javascript",
-		"React",
-		"Rails",
-		"ChakraUI",
-	}, Description: "View your recent Spotify listening history and write reviews for your favorite songs."},
-
-	{ID: "6", Name: "INTERPOLL", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1722888561/interpoll.webp", DateCreated: "", DeployedLink: "https://interpoll.vercel.app", GithubLink: "https://github.com/batmanonwheels/interpoll", MadeWith: []string{"Typescript", "Next.js", "TailwindCSS"}, Description: "Answer daily questions and view statistics for all polls."},
-
-	{ID: "7", Name: "POLYGLOT", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1722888561/polyglot.webp", DateCreated: "", DeployedLink: "https://polyglots.vercel.app", GithubLink: "https://github.com/batmanonwheels/polyglot", MadeWith: []string{"Typescript", "Next.js", "TailwindCSS"}, Description: "A mockup for a language learning app. Designed by Alan Kanaani"},
-
-	{ID: "8", Name: "UHEARD", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1700528168/Screenshot_2023-11-20_at_7.54.06_PM_olcdnb.webp", DateCreated: "", DeployedLink: "https://uheard.vercel.app", GithubLink: "https://github.com/batmanonwheels/uheard", MadeWith: []string{"Typescript", "Next.js", "TailwindCSS"}, Description: "Recommend your favorite tracks and albums to your friends!"},
-
-	{ID: "9", Name: "NEW FUN THINGS", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1722613985/newfunthings_osqy6h.webp", DateCreated: "", DeployedLink: "", GithubLink: "https://github.com/batmanonwheels/new-fun-things", MadeWith: []string{"Typescript", "React", "TailwindCSS"}, Description: "View and purchase various 3d models, totally legit and legal!"},
-	{ID: "10", Name: "ARTISAN BRYAN", Image: "https://res.cloudinary.com/dmmn0gqaf/image/upload/v1727607895/IMG_3762_jtb53f.webp", DateCreated: "", DeployedLink: "https://artisanbryan.com", GithubLink: "", MadeWith: []string{"WordPress", "Elementor"}, Description: ""},
-}
+var projects []Project
 
 func getProjects(c *gin.Context) {
-	if projects[0].ID == "1" {
-		slices.Reverse(projects)
+	url := "https://devingarcia.net:8090/api/collections/projects/records?sort=-Order"
+
+	res, err := http.Get(url)
+
+	if err != nil {
+		fmt.Println(err)
 	}
 
+	defer res.Body.Close()
+
+	body, _ := io.ReadAll(res.Body)
+
+	var projectResponse PocketBaseRes
+
+	if err := json.Unmarshal(body, &projectResponse); err != nil {
+		fmt.Println("Can't unmarshal json")
+	}
+
+	projects = projectResponse.Items
+
 	c.HTML(http.StatusOK, "projects.html", gin.H{"projects": projects})
+
 }
 
 func createProject(c *gin.Context) {
