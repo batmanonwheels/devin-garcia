@@ -30,7 +30,7 @@ type Project struct {
 var projects []Project
 
 func getProjects(c *gin.Context) {
-	url := "https://devingarcia.net:8090/api/collections/projects/records?sort=-Order"
+	url := "https://devin-garcia-db.onrender.com/api/collections/projects/records?sort=-Order"
 
 	res, err := http.Get(url)
 
@@ -41,6 +41,8 @@ func getProjects(c *gin.Context) {
 	defer res.Body.Close()
 
 	body, _ := io.ReadAll(res.Body)
+
+	fmt.Println(res.Body)
 
 	var projectResponse PocketBaseRes
 
