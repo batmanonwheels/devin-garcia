@@ -30,7 +30,7 @@ type Project struct {
 var projects []Project
 
 func getProjects(c *gin.Context) {
-	url := "https://devin-garcia-db.onrender.com/api/collections/projects/records?sort=-Order"
+	url := "https://db.devingarcia.net"
 
 	res, err := http.Get(url)
 
