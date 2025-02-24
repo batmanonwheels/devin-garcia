@@ -11,5 +11,38 @@
     integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/hyperscript.org@0.9.13"></script>
+
+  <script defer>
+
+    window.addEventListener("load", function (e) {
+      const about = document.querySelector("#about");
+      const header = document.querySelector("header");
+
+      // Create a new IntersectionObserver object
+      let observer = new IntersectionObserver(function (entries, observer) {
+        for (let entry of entries) {
+
+          if (entry.isIntersecting) {
+            header.classList.remove("opacity-100")
+            header.classList.add("h-0");
+
+            about.children[0].classList.remove("top-10")
+            about.children[0].classList.add("top-3")
+          } else {
+            header.classList.add("opacity-100")
+            header.classList.remove("h-0");
+
+            about.children[0].classList.remove("top-3")
+            about.children[0].classList.add("top-10")
+          }
+        }
+      });
+
+      if (about !== null) {
+        observer.observe(about);
+      }
+    });
+
+  </script>
 </head>
 {{end}}
