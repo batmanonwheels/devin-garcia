@@ -12,8 +12,14 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/hyperscript.org@0.9.13"></script>
 
-  <script defer>
+  <!-- <script>
+    document.documentElement.classList.toggle(
+      "dark",
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    console.log(window.matchMedia("(prefers-color-scheme: dark)").matches)
+  </script> -->
 
+  <script defer>
     window.addEventListener("load", function (e) {
       const about = document.querySelector("#about");
       const header = document.querySelector("header");
