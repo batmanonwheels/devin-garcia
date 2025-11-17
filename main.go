@@ -30,7 +30,6 @@ type Project struct {
 var projects []Project
 
 func getProjects(c *gin.Context) {
-
 	url := "https://db.devingarcia.net/api/collections/projects/records?sort=-Order"
 
 	res, err := http.Get(url)
@@ -81,11 +80,11 @@ func spinDeployment() {
 }
 
 func main() {
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 
 	router := gin.Default()
 
-	router.LoadHTMLFiles("templates/index.html", "templates/components/projects.html", "templates/components/about.html", "templates/components/head.html", "templates/components/header.html", "templates/components/subheader.html")
+	router.LoadHTMLFiles("templates/index.html", "templates/components/projects.html", "templates/components/about.html", "templates/components/head.html", "templates/components/header.html", "templates/components/subheader.html", "templates/components/player.html")
 
 	router.StaticFS("static", http.Dir("./static"))
 
@@ -98,6 +97,10 @@ func main() {
 
 	router.GET("/api/about", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "about.html", gin.H{})
+	})
+
+	router.GET("/api/player", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "player.html", gin.H{})
 	})
 
 	// project API routes

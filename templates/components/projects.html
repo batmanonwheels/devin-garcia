@@ -1,60 +1,61 @@
 {{range .projects}}
-<div class="flex flex-col h-1/2 md:h-[calc(100svh-4.10rem)] border-stone-500 bg-white">
-  <div class="sticky z-30 flex gap-2 overflow-hidden top-16 mix-blend-difference md:top-8">
-    <h1 class="w-auto mb-2 text-4xl italic font-bold tracking-tighter text-white text-nowrap">
+<div class="flex flex-col h-1/2 md:h-[calc(100svh-3.5rem)] md:snap-start">
+  <div class="sticky z-30 flex gap-2 pl-3 overflow-clip top-16 mix-blend-difference md:top-8">
+    <h1 class="w-auto mb-2 text-2xl italic font-bold tracking-tighter text-white md:text-4xl text-nowrap">
       {{.Name}}
     </h1>
 
-    <h1 class="w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow">
+    <h1 class="w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow">
       {{.Name}}
     </h1>
 
-    <h1 class="w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow">
+    <h1 class="w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow">
       {{.Name}}
     </h1>
 
-    <h1 class="w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow">
+    <h1 class="w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow">
       {{.Name}}
     </h1>
 
-    <h1 class="w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow">
+    <h1 class="w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
 
-    <h1 class="hidden w-auto mb-2 text-4xl italic font-bold tracking-tighter text-nowrap hollow md:inline">
+    <h1 class="hidden w-auto mb-2 text-2xl italic font-bold tracking-tighter md:text-4xl text-nowrap hollow md:inline">
       {{.Name}}
     </h1>
   </div>
 
-  <img src="{{.Image}}" class="z-10 object-cover object-top h-auto md:h-[85%] w-full rounded-md drop-shadow-md my-auto"
+  <img src="{{.Image}}"
+    class="z-10 object-cover object-top h-auto md:h-[85%] w-full rounded-md drop-shadow-md my-auto px-3"
     alt="{{.Name}}" />
 
   <div class="flex flex-col w-full p-2 mt-auto">
-    <div class="flex justify-end gap-3 my-2">
+    <div class="flex justify-end gap-3 px-3 my-2">
       {{range .MadeWith}}
       <p
         class="p-1 my-auto text-xs border rounded-sm text-stone-500 border-stone-500 opacity-70 hover:bg-stone-500 hover:text-stone-50">
